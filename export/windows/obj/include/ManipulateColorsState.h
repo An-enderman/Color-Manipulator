@@ -88,23 +88,23 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		int color1_ARGB;
 		int color2_ARGB;
 		int pre_result;
-		::Array< int > fill;
 		::String colors;
-		::Array< int > empty;
+		::Array< int > color_storage;
 		int result;
 		 ::flixel::ui::FlxBar colorbar;
 		 ::flixel::FlxSprite resultsquare;
-		::Array< ::Dynamic> interractable_colorarray;
-		::Array< ::Dynamic> colorarray;
-		::Array< ::Dynamic> oldcolorarray;
+		::Array< int > colorarray;
 		 ::flixel::addons::ui::FlxUIButton mixbutton;
 		 ::flixel::addons::ui::FlxUIText result_text;
 		 ::Dynamic transformer;
+		int color_temp_storage;
 		int common_stepsize;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_r1;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_g1;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_b1;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_r2;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_g2;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_b2;
 		void addColorMixerUI();
 		::Dynamic addColorMixerUI_dyn();
 

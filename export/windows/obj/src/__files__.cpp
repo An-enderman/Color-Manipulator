@@ -786,8 +786,8 @@ const char *__hxcpp_all_files[] = {
 
 const char *__hxcpp_all_files_fullpath[] = {
 #ifdef HXCPP_DEBUGGER
-"C:\\Users\\Stefano\\Desktop\\color manipulator\\?",
-"C:\\Users\\Stefano\\Desktop\\color manipulator\\export\\windows\\haxe\\ApplicationMain.hx",
+"C:\\Users\\Stefano\\Desktop\\Color-Manipulator\\?",
+"C:\\Users\\Stefano\\Desktop\\Color-Manipulator\\export\\windows\\haxe\\ApplicationMain.hx",
 "C:\\HaxeToolkit\\haxe\\std\\IntIterator.hx",
 "C:\\HaxeToolkit\\haxe\\std\\Lambda.hx",
 "C:\\HaxeToolkit\\haxe\\std\\StringTools.hx",
@@ -852,10 +852,10 @@ const char *__hxcpp_all_files_fullpath[] = {
 "C:\\HaxeToolkit\\haxe\\std\\haxe\\zip\\Reader.hx",
 "C:\\HaxeToolkit\\haxe\\std\\sys\\thread\\EventLoop.hx",
 "C:\\HaxeToolkit\\haxe\\std\\sys\\thread\\NoEventLoopException.hx",
-"C:\\Users\\Stefano\\Desktop\\color manipulator\\source\\Main.hx",
-"C:\\Users\\Stefano\\Desktop\\color manipulator\\export\\windows\\haxe\\ManifestResources.hx",
-"C:\\Users\\Stefano\\Desktop\\color manipulator\\source\\ManipulateColorsState.hx",
-"C:\\Users\\Stefano\\Desktop\\color manipulator\\source\\TitleState.hx",
+"C:\\Users\\Stefano\\Desktop\\Color-Manipulator\\source\\Main.hx",
+"C:\\Users\\Stefano\\Desktop\\Color-Manipulator\\export\\windows\\haxe\\ManifestResources.hx",
+"C:\\Users\\Stefano\\Desktop\\Color-Manipulator\\source\\ManipulateColorsState.hx",
+"C:\\Users\\Stefano\\Desktop\\Color-Manipulator\\source\\TitleState.hx",
 "C:\\HaxeToolkit\\haxe\\lib\\flixel\\5,3,1\\flixel\\FlxBasic.hx",
 "C:\\HaxeToolkit\\haxe\\lib\\flixel\\5,3,1\\flixel\\FlxCamera.hx",
 "C:\\HaxeToolkit\\haxe\\lib\\flixel\\5,3,1\\flixel\\FlxG.hx",

@@ -112,12 +112,12 @@ class ManipulateColorsState extends FlxState
 		resultsquare.y = colorbar.y + 10;
 
 		// steppers stuff
-		stepper_r1 = new FlxUINumericStepper(70, 50, common_stepsize, 0, 0, 255);
-		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, 255, 0, 255);
-		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, 0, 0, 255);
-		stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, 255, 0, 255);
-		stepper_b1 = new FlxUINumericStepper(stepper_r1.x, stepper_r2.y + 30, common_stepsize, 0, 0, 255);
-		stepper_b2 = new FlxUINumericStepper(stepper_r2.x, stepper_b1.y, common_stepsize, 255, 0, 255);
+		stepper_r1 = new FlxUINumericStepper(70, 50, common_stepsize, colorarray[0], 0, 255);
+		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, colorarray[3], 0, 255);
+		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
+		stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
+		stepper_b1 = new FlxUINumericStepper(stepper_r1.x, stepper_r2.y + 30, common_stepsize, colorarray[2], 0, 255);
+		stepper_b2 = new FlxUINumericStepper(stepper_r2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
 
 		// mixbutton stuff
 		/*mixbutton = new FlxUIButton(20, colorimput.y - 30, 'mix', function() {});
@@ -141,43 +141,37 @@ class ManipulateColorsState extends FlxState
 	{
 		if (stepper_r1.value != colorarray[0])
 		{
-			transformer = stepper_r1.value;
-			colorarray[0] = transformer;
+			colorarray[0] = Math.round(stepper_r1.value);
 			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
 			colorbar.updateEmptyBar;
 		}
 		if (stepper_g1.value != colorarray[1])
 		{
-			transformer = stepper_g1.value;
-			colorarray[1] = transformer;
+			colorarray[0] = Math.round(stepper_g1.value, 0);
 			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
 			colorbar.updateEmptyBar;
 		}
 		if (stepper_b1.value != colorarray[1])
 		{
-			transformer = stepper_b1.value;
-			colorarray[2] = transformer;
+			colorarray[2] = Math.round(stepper_b1.value, 0);
 			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
 			colorbar.updateEmptyBar;
 		}
-		if (stepper_r1.value != colorarray[0])
+		if (stepper_r2.value != colorarray[0])
 		{
-			transformer = stepper_r2.value;
-			colorarray[3] = transformer;
+			colorarray[3] = Math.round(stepper_r2.value, 0);
 			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
 			colorbar.updateEmptyBar;
 		}
-		if (stepper_g1.value != colorarray[1])
+		if (stepper_g2.value != colorarray[1])
 		{
-			transformer = stepper_g2.value;
-			colorarray[4] = transformer;
+			colorarray[4] = Math.round(stepper_g2.value, 0);
 			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
 			colorbar.updateEmptyBar;
 		}
-		if (stepper_b1.value != colorarray[1])
+		if (stepper_b2.value != colorarray[1])
 		{
-			transformer = stepper_b2.value;
-			colorarray[5] = transformer;
+			colorarray[4] = Math.round(stepper_b2.value);
 			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
 			colorbar.updateEmptyBar;
 		}

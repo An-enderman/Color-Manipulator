@@ -15,6 +15,7 @@ import flixel.text.FlxText;
 import flixel.ui.FlxBar;
 import flixel.ui.FlxButton;
 import flixel.util.FlxColor;
+import flixel.util.FlxGradient;
 import lime.math.ARGB;
 
 class ManipulateColorsState extends FlxState
@@ -79,7 +80,7 @@ class ManipulateColorsState extends FlxState
 	var colors:String = '0';
 	var color_storage:Array<FlxColor> = [0xFF000000, 0xFFFFFFFF];
 	var result:FlxColor = 0xFF7F7F7F;
-	var colorbar:FlxBar;
+	var colorbar:FlxSprite;
 	var resultsquare:FlxSprite;
 	var colorarray:Array<Int> = [0, 0, 0, 255, 255, 255];
 	var mixbutton:FlxUIButton;
@@ -102,8 +103,8 @@ class ManipulateColorsState extends FlxState
 		tab_group_mixer.name = 'Color Mixer';
 
 		// colorbar stuff
-		colorbar = new FlxBar((FlxG.width / 2) - 55, (FlxG.height / 2) - 55, LEFT_TO_RIGHT, 120, 120, this, colors, 0, 1);
-		colorbar.createGradientEmptyBar(color_storage, 1, 135);
+		colorbar = new FlxSprite((tabMenu.width / 2) - 55, (tabMenu.height / 2) - 55);
+		colorbar = createGradientFlxSprite(color_storage, 1, 135);
 
 		// resultsquare stuff
 		resultsquare = new FlxSprite();
@@ -113,11 +114,11 @@ class ManipulateColorsState extends FlxState
 
 		// steppers stuff
 		stepper_r1 = new FlxUINumericStepper(70, 50, common_stepsize, colorarray[0], 0, 255);
-		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, colorarray[3], 0, 255);
 		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
+		stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + 30, common_stepsize, colorarray[2], 0, 255);
+		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, colorarray[3], 0, 255);
 		stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
-		stepper_b1 = new FlxUINumericStepper(stepper_r1.x, stepper_r2.y + 30, common_stepsize, colorarray[2], 0, 255);
-		stepper_b2 = new FlxUINumericStepper(stepper_r2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
+		stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
 
 		// mixbutton stuff
 		/*mixbutton = new FlxUIButton(20, colorimput.y - 30, 'mix', function() {});
@@ -143,37 +144,31 @@ class ManipulateColorsState extends FlxState
 		{
 			colorarray[0] = Math.round(stepper_r1.value);
 			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
-			colorbar.updateEmptyBar;
 		}
 		if (stepper_g1.value != colorarray[1])
 		{
-			colorarray[0] = Math.round(stepper_g1.value, 0);
+			colorarray[0] = Math.round(stepper_g1.value);
 			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
-			colorbar.updateEmptyBar;
 		}
 		if (stepper_b1.value != colorarray[1])
 		{
-			colorarray[2] = Math.round(stepper_b1.value, 0);
+			colorarray[2] = Math.round(stepper_b1.value);
 			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
-			colorbar.updateEmptyBar;
 		}
 		if (stepper_r2.value != colorarray[0])
 		{
-			colorarray[3] = Math.round(stepper_r2.value, 0);
+			colorarray[3] = Math.round(stepper_r2.value);
 			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
-			colorbar.updateEmptyBar;
 		}
 		if (stepper_g2.value != colorarray[1])
 		{
-			colorarray[4] = Math.round(stepper_g2.value, 0);
+			colorarray[4] = Math.round(stepper_g2.value);
 			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
-			colorbar.updateEmptyBar;
 		}
 		if (stepper_b2.value != colorarray[1])
 		{
 			colorarray[4] = Math.round(stepper_b2.value);
 			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
-			colorbar.updateEmptyBar;
 		}
 		super.update(elapsed);
 	}

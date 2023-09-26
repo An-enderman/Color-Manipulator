@@ -321,11 +321,11 @@ HXLINE( 110)		this->resultsquare->makeGraphic(100,100,this->result,null(),null()
 HXLINE( 111)		this->resultsquare->set_x((this->colorbar->x + 10));
 HXLINE( 112)		this->resultsquare->set_y((this->colorbar->y + 10));
 HXLINE( 115)		this->stepper_r1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,70,50,this->common_stepsize,this->colorarray->__get(0),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 116)		this->stepper_r2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,(this->stepper_r1->x + 70),50,this->common_stepsize,this->colorarray->__get(3),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 117)		this->stepper_g1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r1->x,(this->stepper_r1->y + 30),this->common_stepsize,this->colorarray->__get(1),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 118)		this->stepper_g2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r2->x,this->stepper_g1->y,this->common_stepsize,this->colorarray->__get(4),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 119)		this->stepper_b1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r1->x,(this->stepper_r2->y + 30),this->common_stepsize,this->colorarray->__get(2),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 120)		this->stepper_b2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r2->x,this->stepper_b1->y,this->common_stepsize,this->colorarray->__get(5),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 116)		this->stepper_g1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r1->x,(this->stepper_r1->y + 30),this->common_stepsize,this->colorarray->__get(1),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 117)		this->stepper_b1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_g1->x,(this->stepper_g1->y + 30),this->common_stepsize,this->colorarray->__get(2),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 118)		this->stepper_r2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,(this->stepper_r1->x + 70),50,this->common_stepsize,this->colorarray->__get(3),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 119)		this->stepper_g2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r2->x,this->stepper_g1->y,this->common_stepsize,this->colorarray->__get(4),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 120)		this->stepper_b2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_g2->x,this->stepper_b1->y,this->common_stepsize,this->colorarray->__get(5),0,255,null(),null(),null(),null(),null(),null());
 HXLINE( 128)		tab_group_mixer->add(this->stepper_r1).StaticCast<  ::flixel::FlxSprite >();
 HXLINE( 129)		tab_group_mixer->add(this->stepper_r2).StaticCast<  ::flixel::FlxSprite >();
 HXLINE( 130)		tab_group_mixer->add(this->stepper_g1).StaticCast<  ::flixel::FlxSprite >();

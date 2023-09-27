@@ -35,7 +35,6 @@ HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedSpriteGroup)
 HX_DECLARE_CLASS2(flixel,input,IFlxInput)
 HX_DECLARE_CLASS2(flixel,text,FlxText)
-HX_DECLARE_CLASS2(flixel,ui,FlxBar)
 HX_DECLARE_CLASS2(flixel,ui,FlxTypedButton)
 HX_DECLARE_CLASS2(flixel,util,IFlxDestroyable)
 
@@ -91,7 +90,7 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		::String colors;
 		::Array< int > color_storage;
 		int result;
-		 ::flixel::ui::FlxBar colorbar;
+		 ::flixel::FlxSprite colorbar;
 		 ::flixel::FlxSprite resultsquare;
 		::Array< int > colorarray;
 		 ::flixel::addons::ui::FlxUIButton mixbutton;

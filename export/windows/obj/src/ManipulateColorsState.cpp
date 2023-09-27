@@ -112,9 +112,6 @@
 #ifndef INCLUDED_flixel_ui_FlxTypedButton
 #include <flixel/ui/FlxTypedButton.h>
 #endif
-#ifndef INCLUDED_flixel_util_FlxGradient
-#include <flixel/util/FlxGradient.h>
-#endif
 #ifndef INCLUDED_flixel_util_IFlxDestroyable
 #include <flixel/util/IFlxDestroyable.h>
 #endif
@@ -157,19 +154,24 @@ static const int _hx_array_data_6c97c2c7_1[] = {
 	(int)0,(int)0,(int)0,(int)255,(int)255,(int)255,
 };
 static const int _hx_array_data_6c97c2c7_2[] = {
+	(int)127,(int)127,(int)127,
+};
+static const int _hx_array_data_6c97c2c7_3[] = {
 	(int)-16777216,(int)-1,
 };
 HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_47_create,"ManipulateColorsState","create",0x09e5f1c3,"ManipulateColorsState.create","ManipulateColorsState.hx",47,0x0ada3657)
 HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_35_create,"ManipulateColorsState","create",0x09e5f1c3,"ManipulateColorsState.create","ManipulateColorsState.hx",35,0x0ada3657)
-HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_101_addColorMixerUI,"ManipulateColorsState","addColorMixerUI",0x60dd3094,"ManipulateColorsState.addColorMixerUI","ManipulateColorsState.hx",101,0x0ada3657)
-HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_142_update,"ManipulateColorsState","update",0x14dc10d0,"ManipulateColorsState.update","ManipulateColorsState.hx",142,0x0ada3657)
+HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_135_addColorMixerUI,"ManipulateColorsState","addColorMixerUI",0x60dd3094,"ManipulateColorsState.addColorMixerUI","ManipulateColorsState.hx",135,0x0ada3657)
+HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_103_addColorMixerUI,"ManipulateColorsState","addColorMixerUI",0x60dd3094,"ManipulateColorsState.addColorMixerUI","ManipulateColorsState.hx",103,0x0ada3657)
+HX_LOCAL_STACK_FRAME(_hx_pos_f9b7d31185569caa_161_update,"ManipulateColorsState","update",0x14dc10d0,"ManipulateColorsState.update","ManipulateColorsState.hx",161,0x0ada3657)
 
 void ManipulateColorsState_obj::__construct( ::Dynamic MaxSize){
             	HX_STACKFRAME(&_hx_pos_f9b7d31185569caa_21_new)
-HXLINE(  92)		this->common_stepsize = 1;
-HXLINE(  85)		this->colorarray = ::Array_obj< int >::fromData( _hx_array_data_6c97c2c7_1,6);
+HXLINE(  94)		this->common_stepsize = 1;
+HXLINE(  87)		this->colorarray = ::Array_obj< int >::fromData( _hx_array_data_6c97c2c7_1,6);
+HXLINE(  85)		this->result_storage = ::Array_obj< int >::fromData( _hx_array_data_6c97c2c7_2,3);
 HXLINE(  82)		this->result = -8421505;
-HXLINE(  81)		this->color_storage = ::Array_obj< int >::fromData( _hx_array_data_6c97c2c7_2,2);
+HXLINE(  81)		this->color_storage = ::Array_obj< int >::fromData( _hx_array_data_6c97c2c7_3,2);
 HXLINE(  80)		this->colors = HX_("0",30,00,00,00);
 HXLINE(  79)		this->pre_result = -16777216;
 HXLINE(  78)		this->color2_ARGB = -16777216;
@@ -308,430 +310,660 @@ HXLINE(  70)		this->addColorMixerUI();
 
 
 void ManipulateColorsState_obj::addColorMixerUI(){
-            	HX_GC_STACKFRAME(&_hx_pos_f9b7d31185569caa_101_addColorMixerUI)
-HXLINE( 102)		 ::flixel::addons::ui::FlxUI tab_group_mixer =  ::flixel::addons::ui::FlxUI_obj::__alloc( HX_CTX ,null(),this->tabMenu,null(),null(),null(),null());
-HXLINE( 103)		tab_group_mixer->name = HX_("Color Mixer",4c,ba,cf,d0);
-HXLINE( 106)		this->colorbar = ::flixel::util::FlxGradient_obj::createGradientFlxSprite(120,120,this->color_storage,1,225,true);
-HXLINE( 107)		this->colorbar->set_x(( (Float)(215) ));
-HXLINE( 108)		{
-HXLINE( 108)			 ::flixel::FlxSprite _this = this->colorbar;
-HXDLIN( 108)			int axes = 16;
-HXDLIN( 108)			bool _hx_tmp;
-HXDLIN( 108)			if ((axes != 1)) {
-HXLINE( 108)				_hx_tmp = (axes == 17);
+            		HX_BEGIN_LOCAL_FUNC_S1(::hx::LocalFunc,_hx_Closure_0, ::ManipulateColorsState,_gthis) HXARGC(0)
+            		void _hx_run(){
+            			HX_GC_STACKFRAME(&_hx_pos_f9b7d31185569caa_135_addColorMixerUI)
+HXLINE( 136)			_gthis->result_storage[0] = ::Math_obj::round((( (Float)((_gthis->colorarray->__get(0) + _gthis->colorarray->__get(3))) ) / ( (Float)(2) )));
+HXLINE( 137)			_gthis->result_storage[1] = ::Math_obj::round((( (Float)((_gthis->colorarray->__get(1) + _gthis->colorarray->__get(4))) ) / ( (Float)(2) )));
+HXLINE( 138)			_gthis->result_storage[2] = ::Math_obj::round((( (Float)((_gthis->colorarray->__get(2) + _gthis->colorarray->__get(5))) ) / ( (Float)(2) )));
+HXLINE( 139)			 ::flixel::FlxSprite _gthis1 = _gthis->resultsquare;
+HXDLIN( 139)			int Red = _gthis->result_storage->__get(0);
+HXDLIN( 139)			int Green = _gthis->result_storage->__get(1);
+HXDLIN( 139)			int Blue = _gthis->result_storage->__get(2);
+HXDLIN( 139)			int Alpha = 255;
+HXDLIN( 139)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 139)			{
+HXLINE( 139)				color = (color & -16711681);
+HXDLIN( 139)				int color1;
+HXDLIN( 139)				if ((Red > 255)) {
+HXLINE( 139)					color1 = 255;
+            				}
+            				else {
+HXLINE( 139)					if ((Red < 0)) {
+HXLINE( 139)						color1 = 0;
+            					}
+            					else {
+HXLINE( 139)						color1 = Red;
+            					}
+            				}
+HXDLIN( 139)				color = (color | (color1 << 16));
+            			}
+HXDLIN( 139)			{
+HXLINE( 139)				color = (color & -65281);
+HXDLIN( 139)				int color2;
+HXDLIN( 139)				if ((Green > 255)) {
+HXLINE( 139)					color2 = 255;
+            				}
+            				else {
+HXLINE( 139)					if ((Green < 0)) {
+HXLINE( 139)						color2 = 0;
+            					}
+            					else {
+HXLINE( 139)						color2 = Green;
+            					}
+            				}
+HXDLIN( 139)				color = (color | (color2 << 8));
+            			}
+HXDLIN( 139)			{
+HXLINE( 139)				color = (color & -256);
+HXDLIN( 139)				int color3;
+HXDLIN( 139)				if ((Blue > 255)) {
+HXLINE( 139)					color3 = 255;
+            				}
+            				else {
+HXLINE( 139)					if ((Blue < 0)) {
+HXLINE( 139)						color3 = 0;
+            					}
+            					else {
+HXLINE( 139)						color3 = Blue;
+            					}
+            				}
+HXDLIN( 139)				color = (color | color3);
+            			}
+HXDLIN( 139)			{
+HXLINE( 139)				color = (color & 16777215);
+HXDLIN( 139)				int color4;
+HXDLIN( 139)				if ((Alpha > 255)) {
+HXLINE( 139)					color4 = 255;
+            				}
+            				else {
+HXLINE( 139)					if ((Alpha < 0)) {
+HXLINE( 139)						color4 = 0;
+            					}
+            					else {
+HXLINE( 139)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 139)				color = (color | (color4 << 24));
+            			}
+HXDLIN( 139)			_gthis1->set_color(color);
+            		}
+            		HX_END_LOCAL_FUNC0((void))
+
+            	HX_GC_STACKFRAME(&_hx_pos_f9b7d31185569caa_103_addColorMixerUI)
+HXDLIN( 103)		 ::ManipulateColorsState _gthis = ::hx::ObjectPtr<OBJ_>(this);
+HXLINE( 104)		 ::flixel::addons::ui::FlxUI tab_group_mixer =  ::flixel::addons::ui::FlxUI_obj::__alloc( HX_CTX ,null(),this->tabMenu,null(),null(),null(),null());
+HXLINE( 105)		tab_group_mixer->name = HX_("Color Mixer",4c,ba,cf,d0);
+HXLINE( 108)		this->colorbar1 =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
+HXLINE( 109)		this->colorbar1->makeGraphic(60,120,this->color_storage->__get(0),null(),null());
+HXLINE( 110)		this->colorbar1->set_x(( (Float)(215) ));
+HXLINE( 111)		{
+HXLINE( 111)			 ::flixel::FlxSprite _this = this->colorbar1;
+HXDLIN( 111)			int axes = 16;
+HXDLIN( 111)			bool _hx_tmp;
+HXDLIN( 111)			if ((axes != 1)) {
+HXLINE( 111)				_hx_tmp = (axes == 17);
             			}
             			else {
-HXLINE( 108)				_hx_tmp = true;
+HXLINE( 111)				_hx_tmp = true;
             			}
-HXDLIN( 108)			if (_hx_tmp) {
-HXLINE( 108)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN( 108)				_this->set_x(((( (Float)(_hx_tmp) ) - _this->get_width()) / ( (Float)(2) )));
+HXDLIN( 111)			if (_hx_tmp) {
+HXLINE( 111)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 111)				_this->set_x(((( (Float)(_hx_tmp) ) - _this->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 108)			bool _hx_tmp1;
-HXDLIN( 108)			if ((axes != 16)) {
-HXLINE( 108)				_hx_tmp1 = (axes == 17);
+HXDLIN( 111)			bool _hx_tmp1;
+HXDLIN( 111)			if ((axes != 16)) {
+HXLINE( 111)				_hx_tmp1 = (axes == 17);
             			}
             			else {
-HXLINE( 108)				_hx_tmp1 = true;
+HXLINE( 111)				_hx_tmp1 = true;
             			}
-HXDLIN( 108)			if (_hx_tmp1) {
-HXLINE( 108)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN( 108)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (Float)(2) )));
+HXDLIN( 111)			if (_hx_tmp1) {
+HXLINE( 111)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 111)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE( 110)		this->resultsquare =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
-HXLINE( 111)		this->resultsquare->makeGraphic(100,100,this->result,null(),null());
-HXLINE( 112)		this->resultsquare->set_x((this->colorbar->x + 10));
-HXLINE( 113)		this->resultsquare->set_y((this->colorbar->y + 10));
-HXLINE( 116)		this->stepper_r1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,70,50,this->common_stepsize,this->colorarray->__get(0),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 117)		this->stepper_g1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r1->x,(this->stepper_r1->y + 30),this->common_stepsize,this->colorarray->__get(1),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 118)		this->stepper_b1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_g1->x,(this->stepper_g1->y + 30),this->common_stepsize,this->colorarray->__get(2),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 119)		this->stepper_r2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,(this->stepper_r1->x + 70),50,this->common_stepsize,this->colorarray->__get(3),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 120)		this->stepper_g2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r2->x,this->stepper_g1->y,this->common_stepsize,this->colorarray->__get(4),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 121)		this->stepper_b2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_g2->x,this->stepper_b1->y,this->common_stepsize,this->colorarray->__get(5),0,255,null(),null(),null(),null(),null(),null());
-HXLINE( 129)		tab_group_mixer->add(this->stepper_r1).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 130)		tab_group_mixer->add(this->stepper_r2).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 131)		tab_group_mixer->add(this->stepper_g1).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 132)		tab_group_mixer->add(this->stepper_g2).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 133)		tab_group_mixer->add(this->stepper_b1).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 134)		tab_group_mixer->add(this->stepper_b2).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 135)		tab_group_mixer->add(this->colorbar).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 136)		tab_group_mixer->add(this->resultsquare).StaticCast<  ::flixel::FlxSprite >();
-HXLINE( 138)		this->tabMenu->addGroup(tab_group_mixer);
+HXLINE( 114)		this->colorbar2 =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
+HXLINE( 115)		this->colorbar2->makeGraphic(60,120,this->color_storage->__get(1),null(),null());
+HXLINE( 116)		 ::flixel::FlxSprite _hx_tmp2 = this->colorbar2;
+HXDLIN( 116)		Float _hx_tmp3 = this->colorbar1->x;
+HXDLIN( 116)		_hx_tmp2->set_x((_hx_tmp3 + this->colorbar1->get_width()));
+HXLINE( 117)		{
+HXLINE( 117)			 ::flixel::FlxSprite _this1 = this->colorbar2;
+HXDLIN( 117)			int axes1 = 16;
+HXDLIN( 117)			bool _hx_tmp4;
+HXDLIN( 117)			if ((axes1 != 1)) {
+HXLINE( 117)				_hx_tmp4 = (axes1 == 17);
+            			}
+            			else {
+HXLINE( 117)				_hx_tmp4 = true;
+            			}
+HXDLIN( 117)			if (_hx_tmp4) {
+HXLINE( 117)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 117)				_this1->set_x(((( (Float)(_hx_tmp) ) - _this1->get_width()) / ( (Float)(2) )));
+            			}
+HXDLIN( 117)			bool _hx_tmp5;
+HXDLIN( 117)			if ((axes1 != 16)) {
+HXLINE( 117)				_hx_tmp5 = (axes1 == 17);
+            			}
+            			else {
+HXLINE( 117)				_hx_tmp5 = true;
+            			}
+HXDLIN( 117)			if (_hx_tmp5) {
+HXLINE( 117)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 117)				_this1->set_y(((( (Float)(_hx_tmp) ) - _this1->get_height()) / ( (Float)(2) )));
+            			}
+            		}
+HXLINE( 120)		this->resultsquare =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
+HXLINE( 121)		this->resultsquare->makeGraphic(100,100,this->result,null(),null());
+HXLINE( 122)		this->resultsquare->set_x((this->colorbar1->x + 10));
+HXLINE( 123)		this->resultsquare->set_y((this->colorbar1->y + 10));
+HXLINE( 126)		this->stepper_r1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,70,50,this->common_stepsize,this->colorarray->__get(0),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 127)		this->stepper_g1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r1->x,(this->stepper_r1->y + 30),this->common_stepsize,this->colorarray->__get(1),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 128)		this->stepper_b1 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_g1->x,(this->stepper_g1->y + 30),this->common_stepsize,this->colorarray->__get(2),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 129)		this->stepper_r2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,(this->stepper_r1->x + 70),50,this->common_stepsize,this->colorarray->__get(3),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 130)		this->stepper_g2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_r2->x,this->stepper_g1->y,this->common_stepsize,this->colorarray->__get(4),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 131)		this->stepper_b2 =  ::flixel::addons::ui::FlxUINumericStepper_obj::__alloc( HX_CTX ,this->stepper_g2->x,this->stepper_b1->y,this->common_stepsize,this->colorarray->__get(5),0,255,null(),null(),null(),null(),null(),null());
+HXLINE( 134)		this->mixbutton =  ::flixel::addons::ui::FlxUIButton_obj::__alloc( HX_CTX ,(this->tabMenu->x + 40),(this->colorbar1->y - ( (Float)(30) )),HX_("mix",9c,11,53,00), ::Dynamic(new _hx_Closure_0(_gthis)),null(),null(),null());
+HXLINE( 141)		{
+HXLINE( 141)			 ::flixel::addons::ui::FlxUIButton _this2 = this->mixbutton;
+HXDLIN( 141)			int axes2 = 16;
+HXDLIN( 141)			bool _hx_tmp6;
+HXDLIN( 141)			if ((axes2 != 1)) {
+HXLINE( 141)				_hx_tmp6 = (axes2 == 17);
+            			}
+            			else {
+HXLINE( 141)				_hx_tmp6 = true;
+            			}
+HXDLIN( 141)			if (_hx_tmp6) {
+HXLINE( 141)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN( 141)				_this2->set_x(((( (Float)(_hx_tmp) ) - _this2->get_width()) / ( (Float)(2) )));
+            			}
+HXDLIN( 141)			bool _hx_tmp7;
+HXDLIN( 141)			if ((axes2 != 16)) {
+HXLINE( 141)				_hx_tmp7 = (axes2 == 17);
+            			}
+            			else {
+HXLINE( 141)				_hx_tmp7 = true;
+            			}
+HXDLIN( 141)			if (_hx_tmp7) {
+HXLINE( 141)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN( 141)				_this2->set_y(((( (Float)(_hx_tmp) ) - _this2->get_height()) / ( (Float)(2) )));
+            			}
+            		}
+HXLINE( 142)		this->mixbutton->set_x((this->tabMenu->x + 40));
+HXLINE( 143)		this->mixbutton->set_color(-16744448);
+HXLINE( 144)		( ( ::flixel::text::FlxText)(this->mixbutton->label) )->set_color(-1);
+HXLINE( 145)		this->mixbutton->setGraphicSize(40,24);
+HXLINE( 147)		tab_group_mixer->add(this->stepper_r1).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 148)		tab_group_mixer->add(this->stepper_r2).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 149)		tab_group_mixer->add(this->stepper_g1).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 150)		tab_group_mixer->add(this->stepper_g2).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 151)		tab_group_mixer->add(this->stepper_b1).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 152)		tab_group_mixer->add(this->stepper_b2).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 153)		tab_group_mixer->add(this->colorbar1).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 154)		tab_group_mixer->add(this->colorbar2).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 155)		tab_group_mixer->add(this->resultsquare).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 156)		tab_group_mixer->add(this->mixbutton).StaticCast<  ::flixel::FlxSprite >();
+HXLINE( 157)		this->tabMenu->addGroup(tab_group_mixer);
             	}
 
 
 HX_DEFINE_DYNAMIC_FUNC0(ManipulateColorsState_obj,addColorMixerUI,(void))
 
 void ManipulateColorsState_obj::update(Float elapsed){
-            	HX_STACKFRAME(&_hx_pos_f9b7d31185569caa_142_update)
-HXLINE( 143)		if ((this->stepper_r1->value != this->colorarray->__get(0))) {
-HXLINE( 145)			this->colorarray[0] = ::Math_obj::round(this->stepper_r1->value);
-HXLINE( 146)			::Array< int > _hx_tmp = this->color_storage;
-HXDLIN( 146)			int Red = this->colorarray->__get(0);
-HXDLIN( 146)			int Green = this->colorarray->__get(1);
-HXDLIN( 146)			int Blue = this->colorarray->__get(2);
-HXDLIN( 146)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
-HXDLIN( 146)			{
-HXLINE( 146)				color = (color & -16711681);
-HXDLIN( 146)				int color1;
-HXDLIN( 146)				if ((Red > 255)) {
-HXLINE( 146)					color1 = 255;
+            	HX_STACKFRAME(&_hx_pos_f9b7d31185569caa_161_update)
+HXLINE( 162)		if ((this->stepper_r1->value != this->colorarray->__get(0))) {
+HXLINE( 164)			this->colorarray[0] = ::Math_obj::round(this->stepper_r1->value);
+HXLINE( 165)			::Array< int > _hx_tmp = this->color_storage;
+HXDLIN( 165)			int Red = this->colorarray->__get(0);
+HXDLIN( 165)			int Green = this->colorarray->__get(1);
+HXDLIN( 165)			int Blue = this->colorarray->__get(2);
+HXDLIN( 165)			int Alpha = 255;
+HXDLIN( 165)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 165)			{
+HXLINE( 165)				color = (color & -16711681);
+HXDLIN( 165)				int color1;
+HXDLIN( 165)				if ((Red > 255)) {
+HXLINE( 165)					color1 = 255;
             				}
             				else {
-HXLINE( 146)					if ((Red < 0)) {
-HXLINE( 146)						color1 = 0;
+HXLINE( 165)					if ((Red < 0)) {
+HXLINE( 165)						color1 = 0;
             					}
             					else {
-HXLINE( 146)						color1 = Red;
+HXLINE( 165)						color1 = Red;
             					}
             				}
-HXDLIN( 146)				color = (color | (color1 << 16));
+HXDLIN( 165)				color = (color | (color1 << 16));
             			}
-HXDLIN( 146)			{
-HXLINE( 146)				color = (color & -65281);
-HXDLIN( 146)				int color2;
-HXDLIN( 146)				if ((Green > 255)) {
-HXLINE( 146)					color2 = 255;
+HXDLIN( 165)			{
+HXLINE( 165)				color = (color & -65281);
+HXDLIN( 165)				int color2;
+HXDLIN( 165)				if ((Green > 255)) {
+HXLINE( 165)					color2 = 255;
             				}
             				else {
-HXLINE( 146)					if ((Green < 0)) {
-HXLINE( 146)						color2 = 0;
+HXLINE( 165)					if ((Green < 0)) {
+HXLINE( 165)						color2 = 0;
             					}
             					else {
-HXLINE( 146)						color2 = Green;
+HXLINE( 165)						color2 = Green;
             					}
             				}
-HXDLIN( 146)				color = (color | (color2 << 8));
+HXDLIN( 165)				color = (color | (color2 << 8));
             			}
-HXDLIN( 146)			{
-HXLINE( 146)				color = (color & -256);
-HXDLIN( 146)				int color3;
-HXDLIN( 146)				if ((Blue > 255)) {
-HXLINE( 146)					color3 = 255;
+HXDLIN( 165)			{
+HXLINE( 165)				color = (color & -256);
+HXDLIN( 165)				int color3;
+HXDLIN( 165)				if ((Blue > 255)) {
+HXLINE( 165)					color3 = 255;
             				}
             				else {
-HXLINE( 146)					if ((Blue < 0)) {
-HXLINE( 146)						color3 = 0;
+HXLINE( 165)					if ((Blue < 0)) {
+HXLINE( 165)						color3 = 0;
             					}
             					else {
-HXLINE( 146)						color3 = Blue;
+HXLINE( 165)						color3 = Blue;
             					}
             				}
-HXDLIN( 146)				color = (color | color3);
+HXDLIN( 165)				color = (color | color3);
             			}
-HXDLIN( 146)			{
-HXLINE( 146)				color = (color & 16777215);
-HXDLIN( 146)				color = (color | -16777216);
+HXDLIN( 165)			{
+HXLINE( 165)				color = (color & 16777215);
+HXDLIN( 165)				int color4;
+HXDLIN( 165)				if ((Alpha > 255)) {
+HXLINE( 165)					color4 = 255;
+            				}
+            				else {
+HXLINE( 165)					if ((Alpha < 0)) {
+HXLINE( 165)						color4 = 0;
+            					}
+            					else {
+HXLINE( 165)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 165)				color = (color | (color4 << 24));
             			}
-HXDLIN( 146)			_hx_tmp[0] = color;
+HXDLIN( 165)			_hx_tmp[0] = color;
+HXLINE( 166)			this->colorbar1->set_color(this->color_storage->__get(0));
             		}
-HXLINE( 149)		if ((this->stepper_g1->value != this->colorarray->__get(1))) {
-HXLINE( 151)			this->colorarray[1] = ::Math_obj::round(this->stepper_g1->value);
-HXLINE( 152)			::Array< int > _hx_tmp = this->color_storage;
-HXDLIN( 152)			int Red = this->colorarray->__get(0);
-HXDLIN( 152)			int Green = this->colorarray->__get(1);
-HXDLIN( 152)			int Blue = this->colorarray->__get(2);
-HXDLIN( 152)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
-HXDLIN( 152)			{
-HXLINE( 152)				color = (color & -16711681);
-HXDLIN( 152)				int color1;
-HXDLIN( 152)				if ((Red > 255)) {
-HXLINE( 152)					color1 = 255;
+HXLINE( 168)		if ((this->stepper_g1->value != this->colorarray->__get(1))) {
+HXLINE( 170)			this->colorarray[1] = ::Math_obj::round(this->stepper_g1->value);
+HXLINE( 171)			::Array< int > _hx_tmp = this->color_storage;
+HXDLIN( 171)			int Red = this->colorarray->__get(0);
+HXDLIN( 171)			int Green = this->colorarray->__get(1);
+HXDLIN( 171)			int Blue = this->colorarray->__get(2);
+HXDLIN( 171)			int Alpha = 255;
+HXDLIN( 171)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 171)			{
+HXLINE( 171)				color = (color & -16711681);
+HXDLIN( 171)				int color1;
+HXDLIN( 171)				if ((Red > 255)) {
+HXLINE( 171)					color1 = 255;
             				}
             				else {
-HXLINE( 152)					if ((Red < 0)) {
-HXLINE( 152)						color1 = 0;
+HXLINE( 171)					if ((Red < 0)) {
+HXLINE( 171)						color1 = 0;
             					}
             					else {
-HXLINE( 152)						color1 = Red;
+HXLINE( 171)						color1 = Red;
             					}
             				}
-HXDLIN( 152)				color = (color | (color1 << 16));
+HXDLIN( 171)				color = (color | (color1 << 16));
             			}
-HXDLIN( 152)			{
-HXLINE( 152)				color = (color & -65281);
-HXDLIN( 152)				int color2;
-HXDLIN( 152)				if ((Green > 255)) {
-HXLINE( 152)					color2 = 255;
+HXDLIN( 171)			{
+HXLINE( 171)				color = (color & -65281);
+HXDLIN( 171)				int color2;
+HXDLIN( 171)				if ((Green > 255)) {
+HXLINE( 171)					color2 = 255;
             				}
             				else {
-HXLINE( 152)					if ((Green < 0)) {
-HXLINE( 152)						color2 = 0;
+HXLINE( 171)					if ((Green < 0)) {
+HXLINE( 171)						color2 = 0;
             					}
             					else {
-HXLINE( 152)						color2 = Green;
+HXLINE( 171)						color2 = Green;
             					}
             				}
-HXDLIN( 152)				color = (color | (color2 << 8));
+HXDLIN( 171)				color = (color | (color2 << 8));
             			}
-HXDLIN( 152)			{
-HXLINE( 152)				color = (color & -256);
-HXDLIN( 152)				int color3;
-HXDLIN( 152)				if ((Blue > 255)) {
-HXLINE( 152)					color3 = 255;
+HXDLIN( 171)			{
+HXLINE( 171)				color = (color & -256);
+HXDLIN( 171)				int color3;
+HXDLIN( 171)				if ((Blue > 255)) {
+HXLINE( 171)					color3 = 255;
             				}
             				else {
-HXLINE( 152)					if ((Blue < 0)) {
-HXLINE( 152)						color3 = 0;
+HXLINE( 171)					if ((Blue < 0)) {
+HXLINE( 171)						color3 = 0;
             					}
             					else {
-HXLINE( 152)						color3 = Blue;
+HXLINE( 171)						color3 = Blue;
             					}
             				}
-HXDLIN( 152)				color = (color | color3);
+HXDLIN( 171)				color = (color | color3);
             			}
-HXDLIN( 152)			{
-HXLINE( 152)				color = (color & 16777215);
-HXDLIN( 152)				color = (color | -16777216);
+HXDLIN( 171)			{
+HXLINE( 171)				color = (color & 16777215);
+HXDLIN( 171)				int color4;
+HXDLIN( 171)				if ((Alpha > 255)) {
+HXLINE( 171)					color4 = 255;
+            				}
+            				else {
+HXLINE( 171)					if ((Alpha < 0)) {
+HXLINE( 171)						color4 = 0;
+            					}
+            					else {
+HXLINE( 171)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 171)				color = (color | (color4 << 24));
             			}
-HXDLIN( 152)			_hx_tmp[0] = color;
+HXDLIN( 171)			_hx_tmp[0] = color;
+HXLINE( 172)			this->colorbar1->set_color(this->color_storage->__get(0));
             		}
-HXLINE( 155)		if ((this->stepper_b1->value != this->colorarray->__get(2))) {
-HXLINE( 157)			this->colorarray[2] = ::Math_obj::round(this->stepper_b1->value);
-HXLINE( 158)			::Array< int > _hx_tmp = this->color_storage;
-HXDLIN( 158)			int Red = this->colorarray->__get(0);
-HXDLIN( 158)			int Green = this->colorarray->__get(1);
-HXDLIN( 158)			int Blue = this->colorarray->__get(2);
-HXDLIN( 158)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
-HXDLIN( 158)			{
-HXLINE( 158)				color = (color & -16711681);
-HXDLIN( 158)				int color1;
-HXDLIN( 158)				if ((Red > 255)) {
-HXLINE( 158)					color1 = 255;
+HXLINE( 174)		if ((this->stepper_b1->value != this->colorarray->__get(2))) {
+HXLINE( 176)			this->colorarray[2] = ::Math_obj::round(this->stepper_b1->value);
+HXLINE( 177)			::Array< int > _hx_tmp = this->color_storage;
+HXDLIN( 177)			int Red = this->colorarray->__get(0);
+HXDLIN( 177)			int Green = this->colorarray->__get(1);
+HXDLIN( 177)			int Blue = this->colorarray->__get(2);
+HXDLIN( 177)			int Alpha = 255;
+HXDLIN( 177)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 177)			{
+HXLINE( 177)				color = (color & -16711681);
+HXDLIN( 177)				int color1;
+HXDLIN( 177)				if ((Red > 255)) {
+HXLINE( 177)					color1 = 255;
             				}
             				else {
-HXLINE( 158)					if ((Red < 0)) {
-HXLINE( 158)						color1 = 0;
+HXLINE( 177)					if ((Red < 0)) {
+HXLINE( 177)						color1 = 0;
             					}
             					else {
-HXLINE( 158)						color1 = Red;
+HXLINE( 177)						color1 = Red;
             					}
             				}
-HXDLIN( 158)				color = (color | (color1 << 16));
+HXDLIN( 177)				color = (color | (color1 << 16));
             			}
-HXDLIN( 158)			{
-HXLINE( 158)				color = (color & -65281);
-HXDLIN( 158)				int color2;
-HXDLIN( 158)				if ((Green > 255)) {
-HXLINE( 158)					color2 = 255;
+HXDLIN( 177)			{
+HXLINE( 177)				color = (color & -65281);
+HXDLIN( 177)				int color2;
+HXDLIN( 177)				if ((Green > 255)) {
+HXLINE( 177)					color2 = 255;
             				}
             				else {
-HXLINE( 158)					if ((Green < 0)) {
-HXLINE( 158)						color2 = 0;
+HXLINE( 177)					if ((Green < 0)) {
+HXLINE( 177)						color2 = 0;
             					}
             					else {
-HXLINE( 158)						color2 = Green;
+HXLINE( 177)						color2 = Green;
             					}
             				}
-HXDLIN( 158)				color = (color | (color2 << 8));
+HXDLIN( 177)				color = (color | (color2 << 8));
             			}
-HXDLIN( 158)			{
-HXLINE( 158)				color = (color & -256);
-HXDLIN( 158)				int color3;
-HXDLIN( 158)				if ((Blue > 255)) {
-HXLINE( 158)					color3 = 255;
+HXDLIN( 177)			{
+HXLINE( 177)				color = (color & -256);
+HXDLIN( 177)				int color3;
+HXDLIN( 177)				if ((Blue > 255)) {
+HXLINE( 177)					color3 = 255;
             				}
             				else {
-HXLINE( 158)					if ((Blue < 0)) {
-HXLINE( 158)						color3 = 0;
+HXLINE( 177)					if ((Blue < 0)) {
+HXLINE( 177)						color3 = 0;
             					}
             					else {
-HXLINE( 158)						color3 = Blue;
+HXLINE( 177)						color3 = Blue;
             					}
             				}
-HXDLIN( 158)				color = (color | color3);
+HXDLIN( 177)				color = (color | color3);
             			}
-HXDLIN( 158)			{
-HXLINE( 158)				color = (color & 16777215);
-HXDLIN( 158)				color = (color | -16777216);
+HXDLIN( 177)			{
+HXLINE( 177)				color = (color & 16777215);
+HXDLIN( 177)				int color4;
+HXDLIN( 177)				if ((Alpha > 255)) {
+HXLINE( 177)					color4 = 255;
+            				}
+            				else {
+HXLINE( 177)					if ((Alpha < 0)) {
+HXLINE( 177)						color4 = 0;
+            					}
+            					else {
+HXLINE( 177)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 177)				color = (color | (color4 << 24));
             			}
-HXDLIN( 158)			_hx_tmp[0] = color;
+HXDLIN( 177)			_hx_tmp[0] = color;
+HXLINE( 178)			this->colorbar1->set_color(this->color_storage->__get(0));
             		}
-HXLINE( 161)		if ((this->stepper_r2->value != this->colorarray->__get(3))) {
-HXLINE( 163)			this->colorarray[3] = ::Math_obj::round(this->stepper_r2->value);
-HXLINE( 164)			::Array< int > _hx_tmp = this->color_storage;
-HXDLIN( 164)			int Red = this->colorarray->__get(3);
-HXDLIN( 164)			int Green = this->colorarray->__get(4);
-HXDLIN( 164)			int Blue = this->colorarray->__get(5);
-HXDLIN( 164)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
-HXDLIN( 164)			{
-HXLINE( 164)				color = (color & -16711681);
-HXDLIN( 164)				int color1;
-HXDLIN( 164)				if ((Red > 255)) {
-HXLINE( 164)					color1 = 255;
+HXLINE( 180)		if ((this->stepper_r2->value != this->colorarray->__get(3))) {
+HXLINE( 182)			this->colorarray[3] = ::Math_obj::round(this->stepper_r2->value);
+HXLINE( 183)			::Array< int > _hx_tmp = this->color_storage;
+HXDLIN( 183)			int Red = this->colorarray->__get(3);
+HXDLIN( 183)			int Green = this->colorarray->__get(4);
+HXDLIN( 183)			int Blue = this->colorarray->__get(5);
+HXDLIN( 183)			int Alpha = 255;
+HXDLIN( 183)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 183)			{
+HXLINE( 183)				color = (color & -16711681);
+HXDLIN( 183)				int color1;
+HXDLIN( 183)				if ((Red > 255)) {
+HXLINE( 183)					color1 = 255;
             				}
             				else {
-HXLINE( 164)					if ((Red < 0)) {
-HXLINE( 164)						color1 = 0;
+HXLINE( 183)					if ((Red < 0)) {
+HXLINE( 183)						color1 = 0;
             					}
             					else {
-HXLINE( 164)						color1 = Red;
+HXLINE( 183)						color1 = Red;
             					}
             				}
-HXDLIN( 164)				color = (color | (color1 << 16));
+HXDLIN( 183)				color = (color | (color1 << 16));
             			}
-HXDLIN( 164)			{
-HXLINE( 164)				color = (color & -65281);
-HXDLIN( 164)				int color2;
-HXDLIN( 164)				if ((Green > 255)) {
-HXLINE( 164)					color2 = 255;
+HXDLIN( 183)			{
+HXLINE( 183)				color = (color & -65281);
+HXDLIN( 183)				int color2;
+HXDLIN( 183)				if ((Green > 255)) {
+HXLINE( 183)					color2 = 255;
             				}
             				else {
-HXLINE( 164)					if ((Green < 0)) {
-HXLINE( 164)						color2 = 0;
+HXLINE( 183)					if ((Green < 0)) {
+HXLINE( 183)						color2 = 0;
             					}
             					else {
-HXLINE( 164)						color2 = Green;
+HXLINE( 183)						color2 = Green;
             					}
             				}
-HXDLIN( 164)				color = (color | (color2 << 8));
+HXDLIN( 183)				color = (color | (color2 << 8));
             			}
-HXDLIN( 164)			{
-HXLINE( 164)				color = (color & -256);
-HXDLIN( 164)				int color3;
-HXDLIN( 164)				if ((Blue > 255)) {
-HXLINE( 164)					color3 = 255;
+HXDLIN( 183)			{
+HXLINE( 183)				color = (color & -256);
+HXDLIN( 183)				int color3;
+HXDLIN( 183)				if ((Blue > 255)) {
+HXLINE( 183)					color3 = 255;
             				}
             				else {
-HXLINE( 164)					if ((Blue < 0)) {
-HXLINE( 164)						color3 = 0;
+HXLINE( 183)					if ((Blue < 0)) {
+HXLINE( 183)						color3 = 0;
             					}
             					else {
-HXLINE( 164)						color3 = Blue;
+HXLINE( 183)						color3 = Blue;
             					}
             				}
-HXDLIN( 164)				color = (color | color3);
+HXDLIN( 183)				color = (color | color3);
             			}
-HXDLIN( 164)			{
-HXLINE( 164)				color = (color & 16777215);
-HXDLIN( 164)				color = (color | -16777216);
+HXDLIN( 183)			{
+HXLINE( 183)				color = (color & 16777215);
+HXDLIN( 183)				int color4;
+HXDLIN( 183)				if ((Alpha > 255)) {
+HXLINE( 183)					color4 = 255;
+            				}
+            				else {
+HXLINE( 183)					if ((Alpha < 0)) {
+HXLINE( 183)						color4 = 0;
+            					}
+            					else {
+HXLINE( 183)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 183)				color = (color | (color4 << 24));
             			}
-HXDLIN( 164)			_hx_tmp[1] = color;
+HXDLIN( 183)			_hx_tmp[1] = color;
+HXLINE( 184)			this->colorbar2->set_color(this->color_storage->__get(1));
             		}
-HXLINE( 167)		if ((this->stepper_g2->value != this->colorarray->__get(4))) {
-HXLINE( 169)			this->colorarray[4] = ::Math_obj::round(this->stepper_g2->value);
-HXLINE( 170)			::Array< int > _hx_tmp = this->color_storage;
-HXDLIN( 170)			int Red = this->colorarray->__get(3);
-HXDLIN( 170)			int Green = this->colorarray->__get(4);
-HXDLIN( 170)			int Blue = this->colorarray->__get(5);
-HXDLIN( 170)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
-HXDLIN( 170)			{
-HXLINE( 170)				color = (color & -16711681);
-HXDLIN( 170)				int color1;
-HXDLIN( 170)				if ((Red > 255)) {
-HXLINE( 170)					color1 = 255;
+HXLINE( 186)		if ((this->stepper_g2->value != this->colorarray->__get(4))) {
+HXLINE( 188)			this->colorarray[4] = ::Math_obj::round(this->stepper_g2->value);
+HXLINE( 189)			::Array< int > _hx_tmp = this->color_storage;
+HXDLIN( 189)			int Red = this->colorarray->__get(3);
+HXDLIN( 189)			int Green = this->colorarray->__get(4);
+HXDLIN( 189)			int Blue = this->colorarray->__get(5);
+HXDLIN( 189)			int Alpha = 255;
+HXDLIN( 189)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 189)			{
+HXLINE( 189)				color = (color & -16711681);
+HXDLIN( 189)				int color1;
+HXDLIN( 189)				if ((Red > 255)) {
+HXLINE( 189)					color1 = 255;
             				}
             				else {
-HXLINE( 170)					if ((Red < 0)) {
-HXLINE( 170)						color1 = 0;
+HXLINE( 189)					if ((Red < 0)) {
+HXLINE( 189)						color1 = 0;
             					}
             					else {
-HXLINE( 170)						color1 = Red;
+HXLINE( 189)						color1 = Red;
             					}
             				}
-HXDLIN( 170)				color = (color | (color1 << 16));
+HXDLIN( 189)				color = (color | (color1 << 16));
             			}
-HXDLIN( 170)			{
-HXLINE( 170)				color = (color & -65281);
-HXDLIN( 170)				int color2;
-HXDLIN( 170)				if ((Green > 255)) {
-HXLINE( 170)					color2 = 255;
+HXDLIN( 189)			{
+HXLINE( 189)				color = (color & -65281);
+HXDLIN( 189)				int color2;
+HXDLIN( 189)				if ((Green > 255)) {
+HXLINE( 189)					color2 = 255;
             				}
             				else {
-HXLINE( 170)					if ((Green < 0)) {
-HXLINE( 170)						color2 = 0;
+HXLINE( 189)					if ((Green < 0)) {
+HXLINE( 189)						color2 = 0;
             					}
             					else {
-HXLINE( 170)						color2 = Green;
+HXLINE( 189)						color2 = Green;
             					}
             				}
-HXDLIN( 170)				color = (color | (color2 << 8));
+HXDLIN( 189)				color = (color | (color2 << 8));
             			}
-HXDLIN( 170)			{
-HXLINE( 170)				color = (color & -256);
-HXDLIN( 170)				int color3;
-HXDLIN( 170)				if ((Blue > 255)) {
-HXLINE( 170)					color3 = 255;
+HXDLIN( 189)			{
+HXLINE( 189)				color = (color & -256);
+HXDLIN( 189)				int color3;
+HXDLIN( 189)				if ((Blue > 255)) {
+HXLINE( 189)					color3 = 255;
             				}
             				else {
-HXLINE( 170)					if ((Blue < 0)) {
-HXLINE( 170)						color3 = 0;
+HXLINE( 189)					if ((Blue < 0)) {
+HXLINE( 189)						color3 = 0;
             					}
             					else {
-HXLINE( 170)						color3 = Blue;
+HXLINE( 189)						color3 = Blue;
             					}
             				}
-HXDLIN( 170)				color = (color | color3);
+HXDLIN( 189)				color = (color | color3);
             			}
-HXDLIN( 170)			{
-HXLINE( 170)				color = (color & 16777215);
-HXDLIN( 170)				color = (color | -16777216);
+HXDLIN( 189)			{
+HXLINE( 189)				color = (color & 16777215);
+HXDLIN( 189)				int color4;
+HXDLIN( 189)				if ((Alpha > 255)) {
+HXLINE( 189)					color4 = 255;
+            				}
+            				else {
+HXLINE( 189)					if ((Alpha < 0)) {
+HXLINE( 189)						color4 = 0;
+            					}
+            					else {
+HXLINE( 189)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 189)				color = (color | (color4 << 24));
             			}
-HXDLIN( 170)			_hx_tmp[1] = color;
+HXDLIN( 189)			_hx_tmp[1] = color;
+HXLINE( 190)			this->colorbar2->set_color(this->color_storage->__get(1));
             		}
-HXLINE( 173)		if ((this->stepper_b2->value != this->colorarray->__get(5))) {
-HXLINE( 175)			this->colorarray[5] = ::Math_obj::round(this->stepper_b2->value);
-HXLINE( 176)			::Array< int > _hx_tmp = this->color_storage;
-HXDLIN( 176)			int Red = this->colorarray->__get(3);
-HXDLIN( 176)			int Green = this->colorarray->__get(4);
-HXDLIN( 176)			int Blue = this->colorarray->__get(5);
-HXDLIN( 176)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
-HXDLIN( 176)			{
-HXLINE( 176)				color = (color & -16711681);
-HXDLIN( 176)				int color1;
-HXDLIN( 176)				if ((Red > 255)) {
-HXLINE( 176)					color1 = 255;
+HXLINE( 192)		if ((this->stepper_b2->value != this->colorarray->__get(5))) {
+HXLINE( 194)			this->colorarray[5] = ::Math_obj::round(this->stepper_b2->value);
+HXLINE( 195)			::Array< int > _hx_tmp = this->color_storage;
+HXDLIN( 195)			int Red = this->colorarray->__get(3);
+HXDLIN( 195)			int Green = this->colorarray->__get(4);
+HXDLIN( 195)			int Blue = this->colorarray->__get(5);
+HXDLIN( 195)			int Alpha = 255;
+HXDLIN( 195)			int color = ::flixel::util::_FlxColor::FlxColor_Impl__obj::_new(null());
+HXDLIN( 195)			{
+HXLINE( 195)				color = (color & -16711681);
+HXDLIN( 195)				int color1;
+HXDLIN( 195)				if ((Red > 255)) {
+HXLINE( 195)					color1 = 255;
             				}
             				else {
-HXLINE( 176)					if ((Red < 0)) {
-HXLINE( 176)						color1 = 0;
+HXLINE( 195)					if ((Red < 0)) {
+HXLINE( 195)						color1 = 0;
             					}
             					else {
-HXLINE( 176)						color1 = Red;
+HXLINE( 195)						color1 = Red;
             					}
             				}
-HXDLIN( 176)				color = (color | (color1 << 16));
+HXDLIN( 195)				color = (color | (color1 << 16));
             			}
-HXDLIN( 176)			{
-HXLINE( 176)				color = (color & -65281);
-HXDLIN( 176)				int color2;
-HXDLIN( 176)				if ((Green > 255)) {
-HXLINE( 176)					color2 = 255;
+HXDLIN( 195)			{
+HXLINE( 195)				color = (color & -65281);
+HXDLIN( 195)				int color2;
+HXDLIN( 195)				if ((Green > 255)) {
+HXLINE( 195)					color2 = 255;
             				}
             				else {
-HXLINE( 176)					if ((Green < 0)) {
-HXLINE( 176)						color2 = 0;
+HXLINE( 195)					if ((Green < 0)) {
+HXLINE( 195)						color2 = 0;
             					}
             					else {
-HXLINE( 176)						color2 = Green;
+HXLINE( 195)						color2 = Green;
             					}
             				}
-HXDLIN( 176)				color = (color | (color2 << 8));
+HXDLIN( 195)				color = (color | (color2 << 8));
             			}
-HXDLIN( 176)			{
-HXLINE( 176)				color = (color & -256);
-HXDLIN( 176)				int color3;
-HXDLIN( 176)				if ((Blue > 255)) {
-HXLINE( 176)					color3 = 255;
+HXDLIN( 195)			{
+HXLINE( 195)				color = (color & -256);
+HXDLIN( 195)				int color3;
+HXDLIN( 195)				if ((Blue > 255)) {
+HXLINE( 195)					color3 = 255;
             				}
             				else {
-HXLINE( 176)					if ((Blue < 0)) {
-HXLINE( 176)						color3 = 0;
+HXLINE( 195)					if ((Blue < 0)) {
+HXLINE( 195)						color3 = 0;
             					}
             					else {
-HXLINE( 176)						color3 = Blue;
+HXLINE( 195)						color3 = Blue;
             					}
             				}
-HXDLIN( 176)				color = (color | color3);
+HXDLIN( 195)				color = (color | color3);
             			}
-HXDLIN( 176)			{
-HXLINE( 176)				color = (color & 16777215);
-HXDLIN( 176)				color = (color | -16777216);
+HXDLIN( 195)			{
+HXLINE( 195)				color = (color & 16777215);
+HXDLIN( 195)				int color4;
+HXDLIN( 195)				if ((Alpha > 255)) {
+HXLINE( 195)					color4 = 255;
+            				}
+            				else {
+HXLINE( 195)					if ((Alpha < 0)) {
+HXLINE( 195)						color4 = 0;
+            					}
+            					else {
+HXLINE( 195)						color4 = Alpha;
+            					}
+            				}
+HXDLIN( 195)				color = (color | (color4 << 24));
             			}
-HXDLIN( 176)			_hx_tmp[1] = color;
+HXDLIN( 195)			_hx_tmp[1] = color;
+HXLINE( 196)			this->colorbar2->set_color(this->color_storage->__get(1));
             		}
-HXLINE( 179)		this->super::update(elapsed);
+HXLINE( 198)		this->super::update(elapsed);
             	}
 
 
@@ -772,7 +1004,9 @@ void ManipulateColorsState_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_MEMBER_NAME(colors,"colors");
 	HX_MARK_MEMBER_NAME(color_storage,"color_storage");
 	HX_MARK_MEMBER_NAME(result,"result");
-	HX_MARK_MEMBER_NAME(colorbar,"colorbar");
+	HX_MARK_MEMBER_NAME(colorbar1,"colorbar1");
+	HX_MARK_MEMBER_NAME(colorbar2,"colorbar2");
+	HX_MARK_MEMBER_NAME(result_storage,"result_storage");
 	HX_MARK_MEMBER_NAME(resultsquare,"resultsquare");
 	HX_MARK_MEMBER_NAME(colorarray,"colorarray");
 	HX_MARK_MEMBER_NAME(mixbutton,"mixbutton");
@@ -808,7 +1042,9 @@ void ManipulateColorsState_obj::__Visit(HX_VISIT_PARAMS)
 	HX_VISIT_MEMBER_NAME(colors,"colors");
 	HX_VISIT_MEMBER_NAME(color_storage,"color_storage");
 	HX_VISIT_MEMBER_NAME(result,"result");
-	HX_VISIT_MEMBER_NAME(colorbar,"colorbar");
+	HX_VISIT_MEMBER_NAME(colorbar1,"colorbar1");
+	HX_VISIT_MEMBER_NAME(colorbar2,"colorbar2");
+	HX_VISIT_MEMBER_NAME(result_storage,"result_storage");
 	HX_VISIT_MEMBER_NAME(resultsquare,"resultsquare");
 	HX_VISIT_MEMBER_NAME(colorarray,"colorarray");
 	HX_VISIT_MEMBER_NAME(mixbutton,"mixbutton");
@@ -839,11 +1075,10 @@ void ManipulateColorsState_obj::__Visit(HX_VISIT_PARAMS)
 	case 7:
 		if (HX_FIELD_EQ(inName,"tabMenu") ) { return ::hx::Val( tabMenu ); }
 		break;
-	case 8:
-		if (HX_FIELD_EQ(inName,"colorbar") ) { return ::hx::Val( colorbar ); }
-		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"colorsave") ) { return ::hx::Val( colorsave ); }
+		if (HX_FIELD_EQ(inName,"colorbar1") ) { return ::hx::Val( colorbar1 ); }
+		if (HX_FIELD_EQ(inName,"colorbar2") ) { return ::hx::Val( colorbar2 ); }
 		if (HX_FIELD_EQ(inName,"mixbutton") ) { return ::hx::Val( mixbutton ); }
 		break;
 	case 10:
@@ -874,6 +1109,7 @@ void ManipulateColorsState_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 14:
 		if (HX_FIELD_EQ(inName,"oldcolorimput2") ) { return ::hx::Val( oldcolorimput2 ); }
+		if (HX_FIELD_EQ(inName,"result_storage") ) { return ::hx::Val( result_storage ); }
 		break;
 	case 15:
 		if (HX_FIELD_EQ(inName,"backgroundcolor") ) { return ::hx::Val( backgroundcolor ); }
@@ -898,11 +1134,10 @@ void ManipulateColorsState_obj::__Visit(HX_VISIT_PARAMS)
 	case 7:
 		if (HX_FIELD_EQ(inName,"tabMenu") ) { tabMenu=inValue.Cast<  ::flixel::addons::ui::FlxUITabMenu >(); return inValue; }
 		break;
-	case 8:
-		if (HX_FIELD_EQ(inName,"colorbar") ) { colorbar=inValue.Cast<  ::flixel::FlxSprite >(); return inValue; }
-		break;
 	case 9:
 		if (HX_FIELD_EQ(inName,"colorsave") ) { colorsave=inValue.Cast<  ::flixel::addons::ui::FlxUIInputText >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"colorbar1") ) { colorbar1=inValue.Cast<  ::flixel::FlxSprite >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"colorbar2") ) { colorbar2=inValue.Cast<  ::flixel::FlxSprite >(); return inValue; }
 		if (HX_FIELD_EQ(inName,"mixbutton") ) { mixbutton=inValue.Cast<  ::flixel::addons::ui::FlxUIButton >(); return inValue; }
 		break;
 	case 10:
@@ -933,6 +1168,7 @@ void ManipulateColorsState_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 14:
 		if (HX_FIELD_EQ(inName,"oldcolorimput2") ) { oldcolorimput2=inValue.Cast< ::String >(); return inValue; }
+		if (HX_FIELD_EQ(inName,"result_storage") ) { result_storage=inValue.Cast< ::Array< int > >(); return inValue; }
 		break;
 	case 15:
 		if (HX_FIELD_EQ(inName,"backgroundcolor") ) { backgroundcolor=inValue.Cast< int >(); return inValue; }
@@ -962,7 +1198,9 @@ void ManipulateColorsState_obj::__GetFields(Array< ::String> &outFields)
 	outFields->push(HX_("colors",b0,c5,86,c6));
 	outFields->push(HX_("color_storage",1f,45,72,a7));
 	outFields->push(HX_("result",dd,68,84,08));
-	outFields->push(HX_("colorbar",50,00,fb,89));
+	outFields->push(HX_("colorbar1",e1,45,a5,31));
+	outFields->push(HX_("colorbar2",e2,45,a5,31));
+	outFields->push(HX_("result_storage",99,46,f5,d7));
 	outFields->push(HX_("resultsquare",3a,ed,bb,3a));
 	outFields->push(HX_("colorarray",56,15,ce,b6));
 	outFields->push(HX_("mixbutton",8e,90,6a,9e));
@@ -997,7 +1235,9 @@ static ::hx::StorageInfo ManipulateColorsState_obj_sMemberStorageInfo[] = {
 	{::hx::fsString,(int)offsetof(ManipulateColorsState_obj,colors),HX_("colors",b0,c5,86,c6)},
 	{::hx::fsObject /* ::Array< int > */ ,(int)offsetof(ManipulateColorsState_obj,color_storage),HX_("color_storage",1f,45,72,a7)},
 	{::hx::fsInt,(int)offsetof(ManipulateColorsState_obj,result),HX_("result",dd,68,84,08)},
-	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(ManipulateColorsState_obj,colorbar),HX_("colorbar",50,00,fb,89)},
+	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(ManipulateColorsState_obj,colorbar1),HX_("colorbar1",e1,45,a5,31)},
+	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(ManipulateColorsState_obj,colorbar2),HX_("colorbar2",e2,45,a5,31)},
+	{::hx::fsObject /* ::Array< int > */ ,(int)offsetof(ManipulateColorsState_obj,result_storage),HX_("result_storage",99,46,f5,d7)},
 	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(ManipulateColorsState_obj,resultsquare),HX_("resultsquare",3a,ed,bb,3a)},
 	{::hx::fsObject /* ::Array< int > */ ,(int)offsetof(ManipulateColorsState_obj,colorarray),HX_("colorarray",56,15,ce,b6)},
 	{::hx::fsObject /*  ::flixel::addons::ui::FlxUIButton */ ,(int)offsetof(ManipulateColorsState_obj,mixbutton),HX_("mixbutton",8e,90,6a,9e)},
@@ -1034,7 +1274,9 @@ static ::String ManipulateColorsState_obj_sMemberFields[] = {
 	HX_("colors",b0,c5,86,c6),
 	HX_("color_storage",1f,45,72,a7),
 	HX_("result",dd,68,84,08),
-	HX_("colorbar",50,00,fb,89),
+	HX_("colorbar1",e1,45,a5,31),
+	HX_("colorbar2",e2,45,a5,31),
+	HX_("result_storage",99,46,f5,d7),
 	HX_("resultsquare",3a,ed,bb,3a),
 	HX_("colorarray",56,15,ce,b6),
 	HX_("mixbutton",8e,90,6a,9e),

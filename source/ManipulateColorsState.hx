@@ -82,6 +82,7 @@ class ManipulateColorsState extends FlxState
 	var result:FlxColor = 0xFF7F7F7F;
 	var colorbar1:FlxSprite;
 	var colorbar2:FlxSprite;
+	var result_storage:Array<Int> = [127, 127, 127];
 	var resultsquare:FlxSprite;
 	var colorarray:Array<Int> = [0, 0, 0, 255, 255, 255];
 	var mixbutton:FlxUIButton;
@@ -104,20 +105,20 @@ class ManipulateColorsState extends FlxState
 		tab_group_mixer.name = 'Color Mixer';
 
 		// colorbar1 stuff
-		colorbar1 = new FlxSprite()
-		colorbar1.makeGraphic(50, 100, result);
+		colorbar1 = new FlxSprite();
+		colorbar1.makeGraphic(60, 120, color_storage[0]);
 		colorbar1.x = 215;
 		colorbar1.screenCenter(Y);
 
 		// colorbar2 stuff
-		colorbar2 = new FlxSprite()
-		colorbar2.makeGraphic(50, 100, color_storage[0]);
+		colorbar2 = new FlxSprite();
+		colorbar2.makeGraphic(60, 120, color_storage[1]);
 		colorbar2.x = colorbar1.x + colorbar1.width;
 		colorbar2.screenCenter(Y);
 
 		// resultsquare stuff
 		resultsquare = new FlxSprite();
-		resultsquare.makeGraphic(100, 100, color_storage[1]);
+		resultsquare.makeGraphic(100, 100, result);
 		resultsquare.x = colorbar1.x + 10;
 		resultsquare.y = colorbar1.y + 10;
 
@@ -130,10 +131,18 @@ class ManipulateColorsState extends FlxState
 		stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
 
 		// mixbutton stuff
-		/*mixbutton = new FlxUIButton(20, colorimput.y - 30, 'mix', function() {});
-			mixbutton.color = FlxColor.GREEN;
-			mixbutton.label.color = FlxColor.WHITE;
-			mixbutton.setGraphicSize(40, 24); */
+		mixbutton = new FlxUIButton(tabMenu.x + 40, colorbar1.y - 30, 'mix', function()
+		{
+			result_storage[0] = Math.round((colorarray[0] + colorarray[3]) / 2);
+			result_storage[1] = Math.round((colorarray[1] + colorarray[4]) / 2);
+			result_storage[2] = Math.round((colorarray[2] + colorarray[5]) / 2);
+			resultsquare.color = FlxColor.fromRGB(result_storage[0], result_storage[1], result_storage[2]);
+		});
+		mixbutton.screenCenter(Y);
+		mixbutton.x = tabMenu.x + 40;
+		mixbutton.color = FlxColor.GREEN;
+		mixbutton.label.color = FlxColor.WHITE;
+		mixbutton.setGraphicSize(40, 24);
 
 		tab_group_mixer.add(stepper_r1);
 		tab_group_mixer.add(stepper_r2);
@@ -144,7 +153,7 @@ class ManipulateColorsState extends FlxState
 		tab_group_mixer.add(colorbar1);
 		tab_group_mixer.add(colorbar2);
 		tab_group_mixer.add(resultsquare);
-		// tab_group_mixer.add(mixbutton);
+		tab_group_mixer.add(mixbutton);
 		tabMenu.addGroup(tab_group_mixer);
 	}
 
@@ -153,37 +162,37 @@ class ManipulateColorsState extends FlxState
 		if (stepper_r1.value != colorarray[0])
 		{
 			colorarray[0] = Math.round(stepper_r1.value);
-			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
+			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
 			colorbar1.color = color_storage[0];
 		}
 		if (stepper_g1.value != colorarray[1])
 		{
 			colorarray[1] = Math.round(stepper_g1.value);
-			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
+			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
 			colorbar1.color = color_storage[0];
 		}
 		if (stepper_b1.value != colorarray[2])
 		{
 			colorarray[2] = Math.round(stepper_b1.value);
-			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2], 255);
+			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
 			colorbar1.color = color_storage[0];
 		}
 		if (stepper_r2.value != colorarray[3])
 		{
 			colorarray[3] = Math.round(stepper_r2.value);
-			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
+			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
 			colorbar2.color = color_storage[1];
 		}
 		if (stepper_g2.value != colorarray[4])
 		{
 			colorarray[4] = Math.round(stepper_g2.value);
-			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
+			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
 			colorbar2.color = color_storage[1];
 		}
 		if (stepper_b2.value != colorarray[5])
 		{
 			colorarray[5] = Math.round(stepper_b2.value);
-			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5], 255);
+			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
 			colorbar2.color = color_storage[1];
 		}
 		super.update(elapsed);

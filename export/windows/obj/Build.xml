@@ -10642,7 +10642,6 @@
    <depend name="include/flixel/math/FlxBasePoint.h"/>
    <depend name="include/flixel/text/FlxText.h"/>
    <depend name="include/flixel/ui/FlxTypedButton.h"/>
-   <depend name="include/flixel/util/FlxGradient.h"/>
    <depend name="include/flixel/util/IFlxDestroyable.h"/>
    <depend name="include/flixel/util/IFlxPooled.h"/>
    <depend name="include/flixel/util/_FlxColor/FlxColor_Impl_.h"/>

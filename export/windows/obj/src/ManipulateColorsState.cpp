@@ -425,31 +425,29 @@ HXDLIN( 111)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (
             		}
 HXLINE( 114)		this->colorbar2 =  ::flixel::FlxSprite_obj::__alloc( HX_CTX ,null(),null(),null());
 HXLINE( 115)		this->colorbar2->makeGraphic(60,120,this->color_storage->__get(1),null(),null());
-HXLINE( 116)		 ::flixel::FlxSprite _hx_tmp2 = this->colorbar2;
-HXDLIN( 116)		Float _hx_tmp3 = this->colorbar1->x;
-HXDLIN( 116)		_hx_tmp2->set_x((_hx_tmp3 + this->colorbar1->get_width()));
+HXLINE( 116)		this->colorbar2->set_x(( (Float)(275) ));
 HXLINE( 117)		{
 HXLINE( 117)			 ::flixel::FlxSprite _this1 = this->colorbar2;
 HXDLIN( 117)			int axes1 = 16;
-HXDLIN( 117)			bool _hx_tmp4;
+HXDLIN( 117)			bool _hx_tmp2;
 HXDLIN( 117)			if ((axes1 != 1)) {
-HXLINE( 117)				_hx_tmp4 = (axes1 == 17);
+HXLINE( 117)				_hx_tmp2 = (axes1 == 17);
             			}
             			else {
-HXLINE( 117)				_hx_tmp4 = true;
+HXLINE( 117)				_hx_tmp2 = true;
             			}
-HXDLIN( 117)			if (_hx_tmp4) {
+HXDLIN( 117)			if (_hx_tmp2) {
 HXLINE( 117)				int _hx_tmp = ::flixel::FlxG_obj::width;
 HXDLIN( 117)				_this1->set_x(((( (Float)(_hx_tmp) ) - _this1->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 117)			bool _hx_tmp5;
+HXDLIN( 117)			bool _hx_tmp3;
 HXDLIN( 117)			if ((axes1 != 16)) {
-HXLINE( 117)				_hx_tmp5 = (axes1 == 17);
+HXLINE( 117)				_hx_tmp3 = (axes1 == 17);
             			}
             			else {
-HXLINE( 117)				_hx_tmp5 = true;
+HXLINE( 117)				_hx_tmp3 = true;
             			}
-HXDLIN( 117)			if (_hx_tmp5) {
+HXDLIN( 117)			if (_hx_tmp3) {
 HXLINE( 117)				int _hx_tmp = ::flixel::FlxG_obj::height;
 HXDLIN( 117)				_this1->set_y(((( (Float)(_hx_tmp) ) - _this1->get_height()) / ( (Float)(2) )));
             			}
@@ -468,25 +466,25 @@ HXLINE( 134)		this->mixbutton =  ::flixel::addons::ui::FlxUIButton_obj::__alloc(
 HXLINE( 141)		{
 HXLINE( 141)			 ::flixel::addons::ui::FlxUIButton _this2 = this->mixbutton;
 HXDLIN( 141)			int axes2 = 16;
-HXDLIN( 141)			bool _hx_tmp6;
+HXDLIN( 141)			bool _hx_tmp4;
 HXDLIN( 141)			if ((axes2 != 1)) {
-HXLINE( 141)				_hx_tmp6 = (axes2 == 17);
+HXLINE( 141)				_hx_tmp4 = (axes2 == 17);
             			}
             			else {
-HXLINE( 141)				_hx_tmp6 = true;
+HXLINE( 141)				_hx_tmp4 = true;
             			}
-HXDLIN( 141)			if (_hx_tmp6) {
+HXDLIN( 141)			if (_hx_tmp4) {
 HXLINE( 141)				int _hx_tmp = ::flixel::FlxG_obj::width;
 HXDLIN( 141)				_this2->set_x(((( (Float)(_hx_tmp) ) - _this2->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN( 141)			bool _hx_tmp7;
+HXDLIN( 141)			bool _hx_tmp5;
 HXDLIN( 141)			if ((axes2 != 16)) {
-HXLINE( 141)				_hx_tmp7 = (axes2 == 17);
+HXLINE( 141)				_hx_tmp5 = (axes2 == 17);
             			}
             			else {
-HXLINE( 141)				_hx_tmp7 = true;
+HXLINE( 141)				_hx_tmp5 = true;
             			}
-HXDLIN( 141)			if (_hx_tmp7) {
+HXDLIN( 141)			if (_hx_tmp5) {
 HXLINE( 141)				int _hx_tmp = ::flixel::FlxG_obj::height;
 HXDLIN( 141)				_this2->set_y(((( (Float)(_hx_tmp) ) - _this2->get_height()) / ( (Float)(2) )));
             			}

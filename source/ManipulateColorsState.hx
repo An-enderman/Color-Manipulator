@@ -70,13 +70,6 @@ class ManipulateColorsState extends FlxState
 		addColorMixerUI();
 	}
 
-	var oldcolorimput:String = '';
-	var oldcolorimput2:String = '';
-	var color1:Dynamic = '';
-	var color2:Dynamic = '';
-	var color1_ARGB:ARGB = 0xff000000;
-	var color2_ARGB:ARGB = 0xff000000;
-	var pre_result:ARGB = 0xff000000;
 	var colors:String = '0';
 	var color_storage:Array<FlxColor> = [0xFF000000, 0xFFFFFFFF];
 	var result:FlxColor = 0xFF7F7F7F;
@@ -113,7 +106,7 @@ class ManipulateColorsState extends FlxState
 		// colorbar2 stuff
 		colorbar2 = new FlxSprite();
 		colorbar2.makeGraphic(60, 120, color_storage[1]);
-		colorbar2.x = colorbar1.x + colorbar1.width;
+		colorbar2.x = 275;
 		colorbar2.screenCenter(Y);
 
 		// resultsquare stuff

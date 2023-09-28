@@ -80,13 +80,6 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		 ::flixel::addons::ui::FlxUIInputText colorsave;
 		void create();
 
-		::String oldcolorimput;
-		::String oldcolorimput2;
-		 ::Dynamic color1;
-		 ::Dynamic color2;
-		int color1_ARGB;
-		int color2_ARGB;
-		int pre_result;
 		::String colors;
 		::Array< int > color_storage;
 		int result;
@@ -94,6 +87,7 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		 ::flixel::FlxSprite colorbar2;
 		::Array< int > result_storage;
 		 ::flixel::FlxSprite resultsquare;
+		::Array< int > oldcolorarray;
 		::Array< int > colorarray;
 		 ::flixel::addons::ui::FlxUIButton mixbutton;
 		 ::flixel::addons::ui::FlxUIText result_text;

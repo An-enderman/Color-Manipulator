@@ -3123,6 +3123,9 @@
 #ifndef INCLUDED_flixel_addons_ui_interfaces_IFlxUIWidget
 #include <flixel/addons/ui/interfaces/IFlxUIWidget.h>
 #endif
+#ifndef INCLUDED_flixel_addons_ui_FlxSlider
+#include <flixel/addons/ui/FlxSlider.h>
+#endif
 #ifndef INCLUDED_flixel_addons_ui_FlxMultiKey
 #include <flixel/addons/ui/FlxMultiKey.h>
 #endif
@@ -4390,6 +4393,7 @@ __files__boot();
 ::flixel::addons::ui::interfaces::IEventGetter_obj::__register();
 ::flixel::addons::ui::FlxUIGroup_obj::__register();
 ::flixel::addons::ui::interfaces::IFlxUIWidget_obj::__register();
+::flixel::addons::ui::FlxSlider_obj::__register();
 ::flixel::addons::ui::FlxMultiKey_obj::__register();
 ::flixel::addons::ui::FlxMultiGamepadAnalogStick_obj::__register();
 ::flixel::addons::ui::FlxMultiGamepad_obj::__register();

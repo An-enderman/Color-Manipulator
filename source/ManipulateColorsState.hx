@@ -5,6 +5,8 @@ import TitleState;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
+import flixel.addons.ui.FlxSlider;
+import flixel.addons.ui.FlxSlider;
 import flixel.addons.ui.FlxUI;
 import flixel.addons.ui.FlxUIButton;
 import flixel.addons.ui.FlxUIInputText;
@@ -71,13 +73,14 @@ class ManipulateColorsState extends FlxState
 	}
 
 	var colors:String = '0';
-	var color_storage:Array<FlxColor> = [0xFF000000, 0xFFFFFFFF];
-	var result:FlxColor = 0xFF7F7F7F;
+	var color_storage:Array<FlxColor> = [0xFFFFFFFF, 0xFFFFFFFF];
+	var result:FlxColor = 0xFFFFFFFF;
 	var colorbar1:FlxSprite;
 	var colorbar2:FlxSprite;
 	var result_storage:Array<Int> = [127, 127, 127];
 	var resultsquare:FlxSprite;
-	var colorarray:Array<Int> = [0, 0, 0, 255, 255, 255];
+	var oldcolorarray:Array<Int> = [0, 0, 0, 255, 255, 255];
+	var colorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var mixbutton:FlxUIButton;
 	var result_text:FlxUIText;
 

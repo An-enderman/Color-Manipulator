@@ -195,9 +195,9 @@ class HXCPP_CLASS_ATTRIBUTES FlxTypedSpriteGroup_obj : public  ::flixel::FlxSpri
 
 		bool set_alive(bool Value);
 
-		Float set_x(Float Value);
+		virtual Float set_x(Float Value);
 
-		Float set_y(Float Value);
+		virtual Float set_y(Float Value);
 
 		Float set_angle(Float Value);
 

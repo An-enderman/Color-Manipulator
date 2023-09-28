@@ -117,21 +117,24 @@ class ManipulateColorsState extends FlxState
 		//	stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
 
 		// RGB_text stuff
-		RGB_text = new FlxText();
-		RGB_text.text = 'RED 1';
-		RGB_text.size = 10;
-		RGB_text.x = 70;
-		RGB_text.y = 50;
+
 		RGB_text.color = FlxColor.RED;
 		tab_group_mixer.add(RGB_text);
 
-		for (y in 0...0)
+		for (y in 0...2)
 		{
-			for (x in 0...0)
+			RGB_text = new FlxText();
+			RGB_text.size = 10;
+			for (x in 0...2)
 			{
+				RGB_text.y = 50;
 				if (y == 0)
 				{
-					if (x == 0) {}
+					RGB_text.x = 70;
+					if (x == 0)
+					{
+						RGB_text.text = 'RED 1';
+					}
 					else
 					{
 						RGB_text.text = 'RED 2';
@@ -139,10 +142,13 @@ class ManipulateColorsState extends FlxState
 				}
 				if (y == 1)
 				{
-					if (x == 0) {}
-					else
+					if (x == 0)
 					{
 						RGB_text.text = 'GREEN 1';
+					}
+					else
+					{
+						RGB_text.text = 'GREEN 2';
 					}
 				}
 			}

@@ -15,10 +15,8 @@ HX_DECLARE_CLASS1(flixel,FlxSprite)
 HX_DECLARE_CLASS1(flixel,FlxState)
 HX_DECLARE_CLASS1(flixel,IFlxBasic)
 HX_DECLARE_CLASS1(flixel,IFlxSprite)
-HX_DECLARE_CLASS3(flixel,addons,ui,FlxInputText)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIButton)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIGroup)
-HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIInputText)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUINumericStepper)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUITabMenu)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIText)
@@ -75,9 +73,7 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		 ::flixel::FlxSprite background;
 		 ::flixel::addons::ui::FlxUITabMenu tabMenu;
 		::Array< ::Dynamic> LabAndNames;
-		int backgroundcolor;
 		 ::flixel::addons::ui::FlxUIButton backbutton;
-		 ::flixel::addons::ui::FlxUIInputText colorsave;
 		void create();
 
 		::String colors;
@@ -94,12 +90,8 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		 ::Dynamic transformer;
 		int color_temp_storage;
 		int common_stepsize;
+		 ::flixel::text::FlxText RGB_text;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_r1;
-		 ::flixel::addons::ui::FlxUINumericStepper stepper_g1;
-		 ::flixel::addons::ui::FlxUINumericStepper stepper_b1;
-		 ::flixel::addons::ui::FlxUINumericStepper stepper_r2;
-		 ::flixel::addons::ui::FlxUINumericStepper stepper_g2;
-		 ::flixel::addons::ui::FlxUINumericStepper stepper_b2;
 		void addColorMixerUI();
 		::Dynamic addColorMixerUI_dyn();
 

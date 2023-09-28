@@ -10649,11 +10649,9 @@
    <depend name="include/flixel/FlxState.h"/>
    <depend name="include/flixel/IFlxBasic.h"/>
    <depend name="include/flixel/IFlxSprite.h"/>
-   <depend name="include/flixel/addons/ui/FlxInputText.h"/>
    <depend name="include/flixel/addons/ui/FlxUI.h"/>
    <depend name="include/flixel/addons/ui/FlxUIButton.h"/>
    <depend name="include/flixel/addons/ui/FlxUIGroup.h"/>
-   <depend name="include/flixel/addons/ui/FlxUIInputText.h"/>
    <depend name="include/flixel/addons/ui/FlxUINumericStepper.h"/>
    <depend name="include/flixel/addons/ui/FlxUITabMenu.h"/>
    <depend name="include/flixel/addons/ui/FlxUIText.h"/>

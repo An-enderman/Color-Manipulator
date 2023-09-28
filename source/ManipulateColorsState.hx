@@ -28,9 +28,7 @@ class ManipulateColorsState extends FlxState
 		// {name: "Color Inverter", label: 'Color Inverter'},
 		// {name: "How color formats work", label: 'How color formats work'}
 	];
-	var backgroundcolor:FlxColor = 0xFF353535;
 	private var backbutton:FlxUIButton;
-	var colorsave:FlxUIInputText;
 
 	override public function create()
 	{
@@ -38,12 +36,12 @@ class ManipulateColorsState extends FlxState
 
 		// background stuff
 		background = new FlxSprite();
-		background.makeGraphic(FlxG.width, FlxG.height, backgroundcolor);
+		background.makeGraphic(FlxG.width, FlxG.height, 0xFF353535);
 		background.screenCenter();
 		add(background);
 
 		// backbutton stuff
-		backbutton = new FlxUIButton(5, 5, "back to the main menu", function()
+		backbutton = new FlxUIButton(0, 0, "back to the main menu", function()
 		{
 			FlxG.switchState(new TitleState());
 		});
@@ -52,20 +50,11 @@ class ManipulateColorsState extends FlxState
 		backbutton.setGraphicSize(60, 40);
 		add(backbutton);
 
-		// colorsave stuff
-		for (i in 0...5)
-		{
-			colorsave = new FlxUIInputText(5, 50, 90, '', 9);
-			colorsave.x = 5;
-			colorsave.y = 50 + (i * 30);
-			add(colorsave);
-		}
-
 		// tabMenu stuff
 		tabMenu = new FlxUITabMenu(null, LabAndNames, true);
-		tabMenu.resize(FlxG.width - 100, FlxG.height);
-		tabMenu.x = 100;
-		tabMenu.y = 0;
+		tabMenu.resize(FlxG.width, FlxG.height - 41);
+		tabMenu.x = 0;
+		tabMenu.y = 41;
 		add(tabMenu);
 
 		addColorMixerUI();
@@ -86,16 +75,16 @@ class ManipulateColorsState extends FlxState
 	var transformer:Dynamic;
 	var color_temp_storage:FlxColor;
 
-	var min_common_stepsize:Int = 1;
-	var max_common_stepsize:Int = 20;
-	var stepper_r1:FlxSlider;
+	var common_stepsize:Int = 10;
 
-	// var stepper_g1:FlxUINumericStepper;
-	// var stepper_b1:FlxUINumericStepper;
-	// var stepper_r2:FlxUINumericStepper;
-	// var stepper_g2:FlxUINumericStepper;
-	// var stepper_b2:FlxUINumericStepper;
+	var RGB_text:FlxText;
+	var stepper_r1:FlxUINumericStepper;
 
+	/*var stepper_g1:FlxUINumericStepper;
+		var stepper_b1:FlxUINumericStepper;
+		var stepper_r2:FlxUINumericStepper;
+		var stepper_g2:FlxUINumericStepper;
+		var stepper_b2:FlxUINumericStepper; */
 	function addColorMixerUI()
 	{
 		var tab_group_mixer = new FlxUI(null, tabMenu);
@@ -120,12 +109,44 @@ class ManipulateColorsState extends FlxState
 		resultsquare.y = colorbar1.y + 10;
 
 		// steppers stuff
-		stepper_r1 = new FlxSlider(colorarray[0], null, 70, 50, 0, 255, 50, 15, 3, 0xFF000000, 0xFF828282);
-		// stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
-		// stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + 30, common_stepsize, colorarray[2], 0, 255);
-		// stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, colorarray[3], 0, 255);
-		// stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
-		// stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
+		stepper_r1 = new FlxUINumericStepper(70, 65, common_stepsize, colorarray[1], 0, 255);
+		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
+		//	stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + 30, common_stepsize, colorarray[2], 0, 255);
+		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, stepper_r1.y, common_stepsize, colorarray[3], 0, 255);
+		stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
+		//	stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
+
+		// RGB_text stuff
+		RGB_text = new FlxText();
+		RGB_text.text = 'RED 1';
+		RGB_text.size = 10;
+		RGB_text.x = 70;
+		RGB_text.y = 50;
+		RGB_text.color = FlxColor.RED;
+		tab_group_mixer.add(RGB_text);
+
+		for (y in 0...0)
+		{
+			for (x in 0...0)
+			{
+				if (y == 0)
+				{
+					if (x == 0) {}
+					else
+					{
+						RGB_text.text = 'RED 2';
+					}
+				}
+				if (y == 1)
+				{
+					if (x == 0) {}
+					else
+					{
+						RGB_text.text = 'GREEN 1';
+					}
+				}
+			}
+		}
 
 		// mixbutton stuff
 		mixbutton = new FlxUIButton(tabMenu.x + 40, colorbar1.y - 30, 'mix', function()
@@ -141,12 +162,13 @@ class ManipulateColorsState extends FlxState
 		mixbutton.label.color = FlxColor.WHITE;
 		mixbutton.setGraphicSize(40, 24);
 
+		tab_group_mixer.add(RGB_text);
 		tab_group_mixer.add(stepper_r1);
-		// tab_group_mixer.add(stepper_r2);
-		// tab_group_mixer.add(stepper_g1);
-		// tab_group_mixer.add(stepper_g2);
-		// tab_group_mixer.add(stepper_b1);
-		// tab_group_mixer.add(stepper_b2);
+		/*tab_group_mixer.add(stepper_r2);
+			tab_group_mixer.add(stepper_g1);
+			tab_group_mixer.add(stepper_g2);
+			tab_group_mixer.add(stepper_b1);
+			tab_group_mixer.add(stepper_b2); */
 		tab_group_mixer.add(colorbar1);
 		tab_group_mixer.add(colorbar2);
 		tab_group_mixer.add(resultsquare);

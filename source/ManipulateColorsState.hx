@@ -6,7 +6,6 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.addons.ui.FlxSlider;
-import flixel.addons.ui.FlxSlider;
 import flixel.addons.ui.FlxUI;
 import flixel.addons.ui.FlxUIButton;
 import flixel.addons.ui.FlxUIInputText;
@@ -79,7 +78,7 @@ class ManipulateColorsState extends FlxState
 	var colorbar2:FlxSprite;
 	var result_storage:Array<Int> = [127, 127, 127];
 	var resultsquare:FlxSprite;
-	var oldcolorarray:Array<Int> = [0, 0, 0, 255, 255, 255];
+	var oldcolorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var colorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var mixbutton:FlxUIButton;
 	var result_text:FlxUIText;
@@ -87,13 +86,15 @@ class ManipulateColorsState extends FlxState
 	var transformer:Dynamic;
 	var color_temp_storage:FlxColor;
 
-	var common_stepsize:Int = 1;
-	var stepper_r1:FlxUINumericStepper;
-	var stepper_g1:FlxUINumericStepper;
-	var stepper_b1:FlxUINumericStepper;
-	var stepper_r2:FlxUINumericStepper;
-	var stepper_g2:FlxUINumericStepper;
-	var stepper_b2:FlxUINumericStepper;
+	var min_common_stepsize:Int = 1;
+	var max_common_stepsize:Int = 20;
+	var stepper_r1:FlxSlider;
+
+	// var stepper_g1:FlxUINumericStepper;
+	// var stepper_b1:FlxUINumericStepper;
+	// var stepper_r2:FlxUINumericStepper;
+	// var stepper_g2:FlxUINumericStepper;
+	// var stepper_b2:FlxUINumericStepper;
 
 	function addColorMixerUI()
 	{
@@ -119,12 +120,12 @@ class ManipulateColorsState extends FlxState
 		resultsquare.y = colorbar1.y + 10;
 
 		// steppers stuff
-		stepper_r1 = new FlxUINumericStepper(70, 50, common_stepsize, colorarray[0], 0, 255);
-		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
-		stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + 30, common_stepsize, colorarray[2], 0, 255);
-		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, colorarray[3], 0, 255);
-		stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
-		stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
+		stepper_r1 = new FlxSlider(colorarray[0], null, 70, 50, 0, 255, 50, 15, 3, 0xFF000000, 0xFF828282);
+		// stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
+		// stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + 30, common_stepsize, colorarray[2], 0, 255);
+		// stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, 50, common_stepsize, colorarray[3], 0, 255);
+		// stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
+		// stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
 
 		// mixbutton stuff
 		mixbutton = new FlxUIButton(tabMenu.x + 40, colorbar1.y - 30, 'mix', function()
@@ -141,11 +142,11 @@ class ManipulateColorsState extends FlxState
 		mixbutton.setGraphicSize(40, 24);
 
 		tab_group_mixer.add(stepper_r1);
-		tab_group_mixer.add(stepper_r2);
-		tab_group_mixer.add(stepper_g1);
-		tab_group_mixer.add(stepper_g2);
-		tab_group_mixer.add(stepper_b1);
-		tab_group_mixer.add(stepper_b2);
+		// tab_group_mixer.add(stepper_r2);
+		// tab_group_mixer.add(stepper_g1);
+		// tab_group_mixer.add(stepper_g2);
+		// tab_group_mixer.add(stepper_b1);
+		// tab_group_mixer.add(stepper_b2);
 		tab_group_mixer.add(colorbar1);
 		tab_group_mixer.add(colorbar2);
 		tab_group_mixer.add(resultsquare);
@@ -155,42 +156,42 @@ class ManipulateColorsState extends FlxState
 
 	override public function update(elapsed:Float)
 	{
-		if (stepper_r1.value != colorarray[0])
-		{
-			colorarray[0] = Math.round(stepper_r1.value);
-			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
-			colorbar1.color = color_storage[0];
-		}
-		if (stepper_g1.value != colorarray[1])
-		{
-			colorarray[1] = Math.round(stepper_g1.value);
-			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
-			colorbar1.color = color_storage[0];
-		}
-		if (stepper_b1.value != colorarray[2])
-		{
-			colorarray[2] = Math.round(stepper_b1.value);
-			color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
-			colorbar1.color = color_storage[0];
-		}
-		if (stepper_r2.value != colorarray[3])
-		{
-			colorarray[3] = Math.round(stepper_r2.value);
-			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
-			colorbar2.color = color_storage[1];
-		}
-		if (stepper_g2.value != colorarray[4])
-		{
-			colorarray[4] = Math.round(stepper_g2.value);
-			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
-			colorbar2.color = color_storage[1];
-		}
-		if (stepper_b2.value != colorarray[5])
-		{
-			colorarray[5] = Math.round(stepper_b2.value);
-			color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
-			colorbar2.color = color_storage[1];
-		}
+		/*if (stepper_r1.value != colorarray[0])
+			{
+				colorarray[0] = Math.round(stepper_r1.value);
+				color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
+				colorbar1.color = color_storage[0];
+			}
+			if (stepper_g1.value != colorarray[1])
+			{
+				colorarray[1] = Math.round(stepper_g1.value);
+				color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
+				colorbar1.color = color_storage[0];
+			}
+			if (stepper_b1.value != colorarray[2])
+			{
+				colorarray[2] = Math.round(stepper_b1.value);
+				color_storage[0] = FlxColor.fromRGB(colorarray[0], colorarray[1], colorarray[2]);
+				colorbar1.color = color_storage[0];
+			}
+			if (stepper_r2.value != colorarray[3])
+			{
+				colorarray[3] = Math.round(stepper_r2.value);
+				color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
+				colorbar2.color = color_storage[1];
+			}
+			if (stepper_g2.value != colorarray[4])
+			{
+				colorarray[4] = Math.round(stepper_g2.value);
+				color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
+				colorbar2.color = color_storage[1];
+			}
+			if (stepper_b2.value != colorarray[5])
+			{
+				colorarray[5] = Math.round(stepper_b2.value);
+				color_storage[1] = FlxColor.fromRGB(colorarray[3], colorarray[4], colorarray[5]);
+				colorbar2.color = color_storage[1];
+		}*/
 		super.update(elapsed);
 	}
 }

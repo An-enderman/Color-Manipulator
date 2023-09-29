@@ -92,6 +92,11 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		int common_stepsize;
 		 ::flixel::text::FlxText RGB_text;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_r1;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_g1;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_b1;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_r2;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_g2;
+		 ::flixel::addons::ui::FlxUINumericStepper stepper_b2;
 		void addColorMixerUI();
 		::Dynamic addColorMixerUI_dyn();
 

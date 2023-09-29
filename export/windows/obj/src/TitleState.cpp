@@ -101,14 +101,14 @@
 #endif
 
 HX_DEFINE_STACK_FRAME(_hx_pos_a55214e0452daa02_15_new,"TitleState","new",0x3b23deeb,"TitleState.new","TitleState.hx",15,0xd132a6e5)
-HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_38_create,"TitleState","create",0x801cc151,"TitleState.create","TitleState.hx",38,0xd132a6e5)
+HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_46_create,"TitleState","create",0x801cc151,"TitleState.create","TitleState.hx",46,0xd132a6e5)
 HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_26_create,"TitleState","create",0x801cc151,"TitleState.create","TitleState.hx",26,0xd132a6e5)
-HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_67_update,"TitleState","update",0x8b12e05e,"TitleState.update","TitleState.hx",67,0xd132a6e5)
+HX_LOCAL_STACK_FRAME(_hx_pos_a55214e0452daa02_65_update,"TitleState","update",0x8b12e05e,"TitleState.update","TitleState.hx",65,0xd132a6e5)
 
 void TitleState_obj::__construct( ::Dynamic MaxSize){
             	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_15_new)
-HXLINE(  23)		this->UN_LB_COLOR = -1;
-HXLINE(  22)		this->UN_BUTTON_COLOR = -16744448;
+HXLINE(  22)		this->UN_LB_COLOR = -1;
+HXLINE(  21)		this->UN_BUTTON_COLOR = -16744448;
 HXLINE(  17)		this->backgroundcolor = -13290187;
 HXLINE(  15)		super::__construct(MaxSize);
             	}
@@ -139,21 +139,21 @@ bool TitleState_obj::_hx_isInstanceOf(int inClassId) {
 void TitleState_obj::create(){
             		HX_BEGIN_LOCAL_FUNC_S0(::hx::LocalFunc,_hx_Closure_1) HXARGC(0)
             		void _hx_run(){
-            			HX_GC_STACKFRAME(&_hx_pos_a55214e0452daa02_38_create)
-HXLINE(  38)			 ::flixel::FlxState nextState =  ::ManipulateColorsState_obj::__alloc( HX_CTX ,null());
-HXDLIN(  38)			 ::flixel::FlxState stateOnCall = ::flixel::FlxG_obj::game->_state;
-HXDLIN(  38)			 ::Dynamic _hx_tmp = ::Reflect_obj::field(::flixel::FlxG_obj::game->_state,HX_("switchTo",8f,f8,d6,0d));
-HXDLIN(  38)			if (( (bool)(_hx_tmp(nextState)) )) {
+            			HX_GC_STACKFRAME(&_hx_pos_a55214e0452daa02_46_create)
+HXLINE(  46)			 ::flixel::FlxState nextState =  ::ManipulateColorsState_obj::__alloc( HX_CTX ,null());
+HXDLIN(  46)			 ::flixel::FlxState stateOnCall = ::flixel::FlxG_obj::game->_state;
+HXDLIN(  46)			 ::Dynamic _hx_tmp = ::Reflect_obj::field(::flixel::FlxG_obj::game->_state,HX_("switchTo",8f,f8,d6,0d));
+HXDLIN(  46)			if (( (bool)(_hx_tmp(nextState)) )) {
             				HX_BEGIN_LOCAL_FUNC_S2(::hx::LocalFunc,_hx_Closure_0, ::flixel::FlxState,nextState, ::flixel::FlxState,stateOnCall) HXARGC(0)
             				void _hx_run(){
-            					HX_GC_STACKFRAME(&_hx_pos_a55214e0452daa02_38_create)
-HXLINE(  38)					if (::hx::IsInstanceEq( ::flixel::FlxG_obj::game->_state,stateOnCall )) {
-HXLINE(  38)						::flixel::FlxG_obj::game->_requestedState = nextState;
+            					HX_GC_STACKFRAME(&_hx_pos_a55214e0452daa02_46_create)
+HXLINE(  46)					if (::hx::IsInstanceEq( ::flixel::FlxG_obj::game->_state,stateOnCall )) {
+HXLINE(  46)						::flixel::FlxG_obj::game->_requestedState = nextState;
             					}
             				}
             				HX_END_LOCAL_FUNC0((void))
 
-HXLINE(  38)				::flixel::FlxG_obj::game->_state->startOutro( ::Dynamic(new _hx_Closure_0(nextState,stateOnCall)));
+HXLINE(  46)				::flixel::FlxG_obj::game->_state->startOutro( ::Dynamic(new _hx_Closure_0(nextState,stateOnCall)));
             			}
             		}
             		HX_END_LOCAL_FUNC0((void))
@@ -189,107 +189,57 @@ HXDLIN(  32)				_this->set_y(((( (Float)(_hx_tmp) ) - _this->get_height()) / ( (
             			}
             		}
 HXLINE(  33)		this->add(this->background);
-HXLINE(  36)		this->colormixerbutton =  ::flixel::addons::ui::FlxUIButton_obj::__alloc( HX_CTX ,0,70,HX_("manipulate colors",96,bb,86,02), ::Dynamic(new _hx_Closure_1()),null(),null(),null());
-HXLINE(  40)		{
-HXLINE(  40)			 ::flixel::addons::ui::FlxUIButton _this1 = this->colormixerbutton;
-HXDLIN(  40)			int axes1 = 1;
-HXDLIN(  40)			bool _hx_tmp2;
-HXDLIN(  40)			if ((axes1 != 1)) {
-HXLINE(  40)				_hx_tmp2 = (axes1 == 17);
+HXLINE(  36)		this->Program_title =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,null(),null(),null(),null(),null(),null());
+HXLINE(  37)		this->Program_title->set_y(( (Float)(0) ));
+HXLINE(  38)		this->Program_title->set_size(30);
+HXLINE(  39)		this->Program_title->set_text(HX_("Color Manipulator Program",35,03,19,38));
+HXLINE(  40)		 ::flixel::text::FlxText _hx_tmp2 = this->Program_title;
+HXDLIN(  40)		Float _hx_tmp3 = (( (Float)(::flixel::FlxG_obj::width) ) / ( (Float)(2) ));
+HXDLIN(  40)		_hx_tmp2->set_x((_hx_tmp3 - (this->Program_title->get_fieldWidth() / ( (Float)(2) ))));
+HXLINE(  41)		this->add(this->Program_title);
+HXLINE(  44)		this->colormixerbutton =  ::flixel::addons::ui::FlxUIButton_obj::__alloc( HX_CTX ,0,130,HX_("manipulate colors",96,bb,86,02), ::Dynamic(new _hx_Closure_1()),null(),null(),null());
+HXLINE(  48)		{
+HXLINE(  48)			 ::flixel::addons::ui::FlxUIButton _this1 = this->colormixerbutton;
+HXDLIN(  48)			int axes1 = 1;
+HXDLIN(  48)			bool _hx_tmp4;
+HXDLIN(  48)			if ((axes1 != 1)) {
+HXLINE(  48)				_hx_tmp4 = (axes1 == 17);
             			}
             			else {
-HXLINE(  40)				_hx_tmp2 = true;
+HXLINE(  48)				_hx_tmp4 = true;
             			}
-HXDLIN(  40)			if (_hx_tmp2) {
-HXLINE(  40)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN(  40)				_this1->set_x(((( (Float)(_hx_tmp) ) - _this1->get_width()) / ( (Float)(2) )));
+HXDLIN(  48)			if (_hx_tmp4) {
+HXLINE(  48)				int _hx_tmp = ::flixel::FlxG_obj::width;
+HXDLIN(  48)				_this1->set_x(((( (Float)(_hx_tmp) ) - _this1->get_width()) / ( (Float)(2) )));
             			}
-HXDLIN(  40)			bool _hx_tmp3;
-HXDLIN(  40)			if ((axes1 != 16)) {
-HXLINE(  40)				_hx_tmp3 = (axes1 == 17);
+HXDLIN(  48)			bool _hx_tmp5;
+HXDLIN(  48)			if ((axes1 != 16)) {
+HXLINE(  48)				_hx_tmp5 = (axes1 == 17);
             			}
             			else {
-HXLINE(  40)				_hx_tmp3 = true;
+HXLINE(  48)				_hx_tmp5 = true;
             			}
-HXDLIN(  40)			if (_hx_tmp3) {
-HXLINE(  40)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN(  40)				_this1->set_y(((( (Float)(_hx_tmp) ) - _this1->get_height()) / ( (Float)(2) )));
+HXDLIN(  48)			if (_hx_tmp5) {
+HXLINE(  48)				int _hx_tmp = ::flixel::FlxG_obj::height;
+HXDLIN(  48)				_this1->set_y(((( (Float)(_hx_tmp) ) - _this1->get_height()) / ( (Float)(2) )));
             			}
             		}
-HXLINE(  41)		this->colormixerbutton->set_color(this->UN_BUTTON_COLOR);
-HXLINE(  42)		( ( ::flixel::text::FlxText)(this->colormixerbutton->label) )->set_color(this->UN_LB_COLOR);
-HXLINE(  43)		this->colormixerbutton->setGraphicSize(120,60);
-HXLINE(  44)		this->add(this->colormixerbutton);
-HXLINE(  47)		this->colorextractorbutton =  ::flixel::addons::ui::FlxUIButton_obj::__alloc( HX_CTX ,0,0,HX_("WIP",fe,43,42,00),null(),null(),null(),null());
-HXLINE(  48)		this->colorextractorbutton->set_color(this->UN_BUTTON_COLOR);
-HXLINE(  49)		( ( ::flixel::text::FlxText)(this->colorextractorbutton->label) )->set_color(this->UN_LB_COLOR);
-HXLINE(  50)		{
-HXLINE(  50)			 ::flixel::addons::ui::FlxUIButton _this2 = this->colorextractorbutton;
-HXDLIN(  50)			int axes2 = 1;
-HXDLIN(  50)			bool _hx_tmp4;
-HXDLIN(  50)			if ((axes2 != 1)) {
-HXLINE(  50)				_hx_tmp4 = (axes2 == 17);
-            			}
-            			else {
-HXLINE(  50)				_hx_tmp4 = true;
-            			}
-HXDLIN(  50)			if (_hx_tmp4) {
-HXLINE(  50)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN(  50)				_this2->set_x(((( (Float)(_hx_tmp) ) - _this2->get_width()) / ( (Float)(2) )));
-            			}
-HXDLIN(  50)			bool _hx_tmp5;
-HXDLIN(  50)			if ((axes2 != 16)) {
-HXLINE(  50)				_hx_tmp5 = (axes2 == 17);
-            			}
-            			else {
-HXLINE(  50)				_hx_tmp5 = true;
-            			}
-HXDLIN(  50)			if (_hx_tmp5) {
-HXLINE(  50)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN(  50)				_this2->set_y(((( (Float)(_hx_tmp) ) - _this2->get_height()) / ( (Float)(2) )));
-            			}
-            		}
-HXLINE(  51)		this->colorextractorbutton->setGraphicSize(120,60);
-HXLINE(  52)		this->colorextractorbutton->set_y((this->colormixerbutton->y + 120));
-HXLINE(  53)		this->add(this->colorextractorbutton);
-HXLINE(  56)		this->colorinverterbutton =  ::flixel::addons::ui::FlxUIButton_obj::__alloc( HX_CTX ,0,0,HX_("WIP",fe,43,42,00),null(),null(),null(),null());
-HXLINE(  57)		this->colorinverterbutton->set_color(this->UN_BUTTON_COLOR);
-HXLINE(  58)		( ( ::flixel::text::FlxText)(this->colorinverterbutton->label) )->set_color(this->UN_LB_COLOR);
-HXLINE(  59)		this->colorinverterbutton->setGraphicSize(120,60);
-HXLINE(  60)		{
-HXLINE(  60)			 ::flixel::addons::ui::FlxUIButton _this3 = this->colorinverterbutton;
-HXDLIN(  60)			int axes3 = 1;
-HXDLIN(  60)			bool _hx_tmp6;
-HXDLIN(  60)			if ((axes3 != 1)) {
-HXLINE(  60)				_hx_tmp6 = (axes3 == 17);
-            			}
-            			else {
-HXLINE(  60)				_hx_tmp6 = true;
-            			}
-HXDLIN(  60)			if (_hx_tmp6) {
-HXLINE(  60)				int _hx_tmp = ::flixel::FlxG_obj::width;
-HXDLIN(  60)				_this3->set_x(((( (Float)(_hx_tmp) ) - _this3->get_width()) / ( (Float)(2) )));
-            			}
-HXDLIN(  60)			bool _hx_tmp7;
-HXDLIN(  60)			if ((axes3 != 16)) {
-HXLINE(  60)				_hx_tmp7 = (axes3 == 17);
-            			}
-            			else {
-HXLINE(  60)				_hx_tmp7 = true;
-            			}
-HXDLIN(  60)			if (_hx_tmp7) {
-HXLINE(  60)				int _hx_tmp = ::flixel::FlxG_obj::height;
-HXDLIN(  60)				_this3->set_y(((( (Float)(_hx_tmp) ) - _this3->get_height()) / ( (Float)(2) )));
-            			}
-            		}
-HXLINE(  61)		this->colorinverterbutton->set_y((this->colorextractorbutton->y + 120));
-HXLINE(  62)		this->add(this->colorinverterbutton);
+HXLINE(  49)		this->colormixerbutton->set_color(this->UN_BUTTON_COLOR);
+HXLINE(  50)		( ( ::flixel::text::FlxText)(this->colormixerbutton->label) )->set_color(this->UN_LB_COLOR);
+HXLINE(  51)		this->colormixerbutton->setGraphicSize(120,60);
+HXLINE(  52)		this->add(this->colormixerbutton);
+HXLINE(  55)		this->Credit =  ::flixel::text::FlxText_obj::__alloc( HX_CTX ,null(),null(),null(),null(),null(),null());
+HXLINE(  56)		this->Credit->set_x(( (Float)(0) ));
+HXLINE(  57)		this->Credit->set_y(( (Float)((::flixel::FlxG_obj::height - 25)) ));
+HXLINE(  58)		this->Credit->set_size(10);
+HXLINE(  59)		this->Credit->set_text(HX_("Everything here is programmed by me(An-enderman)",a3,35,0c,9b));
+HXLINE(  60)		this->add(this->Credit);
             	}
 
 
 void TitleState_obj::update(Float elapsed){
-            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_67_update)
-HXDLIN(  67)		this->super::update(elapsed);
+            	HX_STACKFRAME(&_hx_pos_a55214e0452daa02_65_update)
+HXDLIN(  65)		this->super::update(elapsed);
             	}
 
 
@@ -316,11 +266,11 @@ void TitleState_obj::__Mark(HX_MARK_PARAMS)
 	HX_MARK_BEGIN_CLASS(TitleState);
 	HX_MARK_MEMBER_NAME(backgroundcolor,"backgroundcolor");
 	HX_MARK_MEMBER_NAME(background,"background");
+	HX_MARK_MEMBER_NAME(Program_title,"Program_title");
 	HX_MARK_MEMBER_NAME(colormixerbutton,"colormixerbutton");
-	HX_MARK_MEMBER_NAME(colorextractorbutton,"colorextractorbutton");
-	HX_MARK_MEMBER_NAME(colorinverterbutton,"colorinverterbutton");
 	HX_MARK_MEMBER_NAME(UN_BUTTON_COLOR,"UN_BUTTON_COLOR");
 	HX_MARK_MEMBER_NAME(UN_LB_COLOR,"UN_LB_COLOR");
+	HX_MARK_MEMBER_NAME(Credit,"Credit");
 	 ::flixel::FlxState_obj::__Mark(HX_MARK_ARG);
 	HX_MARK_END_CLASS();
 }
@@ -329,11 +279,11 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 {
 	HX_VISIT_MEMBER_NAME(backgroundcolor,"backgroundcolor");
 	HX_VISIT_MEMBER_NAME(background,"background");
+	HX_VISIT_MEMBER_NAME(Program_title,"Program_title");
 	HX_VISIT_MEMBER_NAME(colormixerbutton,"colormixerbutton");
-	HX_VISIT_MEMBER_NAME(colorextractorbutton,"colorextractorbutton");
-	HX_VISIT_MEMBER_NAME(colorinverterbutton,"colorinverterbutton");
 	HX_VISIT_MEMBER_NAME(UN_BUTTON_COLOR,"UN_BUTTON_COLOR");
 	HX_VISIT_MEMBER_NAME(UN_LB_COLOR,"UN_LB_COLOR");
+	HX_VISIT_MEMBER_NAME(Credit,"Credit");
 	 ::flixel::FlxState_obj::__Visit(HX_VISIT_ARG);
 }
 
@@ -341,6 +291,7 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 {
 	switch(inName.length) {
 	case 6:
+		if (HX_FIELD_EQ(inName,"Credit") ) { return ::hx::Val( Credit ); }
 		if (HX_FIELD_EQ(inName,"create") ) { return ::hx::Val( create_dyn() ); }
 		if (HX_FIELD_EQ(inName,"update") ) { return ::hx::Val( update_dyn() ); }
 		break;
@@ -350,18 +301,15 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 	case 11:
 		if (HX_FIELD_EQ(inName,"UN_LB_COLOR") ) { return ::hx::Val( UN_LB_COLOR ); }
 		break;
+	case 13:
+		if (HX_FIELD_EQ(inName,"Program_title") ) { return ::hx::Val( Program_title ); }
+		break;
 	case 15:
 		if (HX_FIELD_EQ(inName,"backgroundcolor") ) { return ::hx::Val( backgroundcolor ); }
 		if (HX_FIELD_EQ(inName,"UN_BUTTON_COLOR") ) { return ::hx::Val( UN_BUTTON_COLOR ); }
 		break;
 	case 16:
 		if (HX_FIELD_EQ(inName,"colormixerbutton") ) { return ::hx::Val( colormixerbutton ); }
-		break;
-	case 19:
-		if (HX_FIELD_EQ(inName,"colorinverterbutton") ) { return ::hx::Val( colorinverterbutton ); }
-		break;
-	case 20:
-		if (HX_FIELD_EQ(inName,"colorextractorbutton") ) { return ::hx::Val( colorextractorbutton ); }
 	}
 	return super::__Field(inName,inCallProp);
 }
@@ -369,11 +317,17 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 ::hx::Val TitleState_obj::__SetField(const ::String &inName,const ::hx::Val &inValue,::hx::PropertyAccess inCallProp)
 {
 	switch(inName.length) {
+	case 6:
+		if (HX_FIELD_EQ(inName,"Credit") ) { Credit=inValue.Cast<  ::flixel::text::FlxText >(); return inValue; }
+		break;
 	case 10:
 		if (HX_FIELD_EQ(inName,"background") ) { background=inValue.Cast<  ::flixel::FlxSprite >(); return inValue; }
 		break;
 	case 11:
 		if (HX_FIELD_EQ(inName,"UN_LB_COLOR") ) { UN_LB_COLOR=inValue.Cast< int >(); return inValue; }
+		break;
+	case 13:
+		if (HX_FIELD_EQ(inName,"Program_title") ) { Program_title=inValue.Cast<  ::flixel::text::FlxText >(); return inValue; }
 		break;
 	case 15:
 		if (HX_FIELD_EQ(inName,"backgroundcolor") ) { backgroundcolor=inValue.Cast< int >(); return inValue; }
@@ -381,12 +335,6 @@ void TitleState_obj::__Visit(HX_VISIT_PARAMS)
 		break;
 	case 16:
 		if (HX_FIELD_EQ(inName,"colormixerbutton") ) { colormixerbutton=inValue.Cast<  ::flixel::addons::ui::FlxUIButton >(); return inValue; }
-		break;
-	case 19:
-		if (HX_FIELD_EQ(inName,"colorinverterbutton") ) { colorinverterbutton=inValue.Cast<  ::flixel::addons::ui::FlxUIButton >(); return inValue; }
-		break;
-	case 20:
-		if (HX_FIELD_EQ(inName,"colorextractorbutton") ) { colorextractorbutton=inValue.Cast<  ::flixel::addons::ui::FlxUIButton >(); return inValue; }
 	}
 	return super::__SetField(inName,inValue,inCallProp);
 }
@@ -395,11 +343,11 @@ void TitleState_obj::__GetFields(Array< ::String> &outFields)
 {
 	outFields->push(HX_("backgroundcolor",b5,de,19,7a));
 	outFields->push(HX_("background",ee,93,1d,26));
+	outFields->push(HX_("Program_title",3d,b2,30,ae));
 	outFields->push(HX_("colormixerbutton",38,eb,4c,d5));
-	outFields->push(HX_("colorextractorbutton",93,b3,ac,e3));
-	outFields->push(HX_("colorinverterbutton",d8,2f,dc,ff));
 	outFields->push(HX_("UN_BUTTON_COLOR",dc,04,f1,cd));
 	outFields->push(HX_("UN_LB_COLOR",60,89,d4,1f));
+	outFields->push(HX_("Credit",59,18,a6,b0));
 	super::__GetFields(outFields);
 };
 
@@ -407,11 +355,11 @@ void TitleState_obj::__GetFields(Array< ::String> &outFields)
 static ::hx::StorageInfo TitleState_obj_sMemberStorageInfo[] = {
 	{::hx::fsInt,(int)offsetof(TitleState_obj,backgroundcolor),HX_("backgroundcolor",b5,de,19,7a)},
 	{::hx::fsObject /*  ::flixel::FlxSprite */ ,(int)offsetof(TitleState_obj,background),HX_("background",ee,93,1d,26)},
+	{::hx::fsObject /*  ::flixel::text::FlxText */ ,(int)offsetof(TitleState_obj,Program_title),HX_("Program_title",3d,b2,30,ae)},
 	{::hx::fsObject /*  ::flixel::addons::ui::FlxUIButton */ ,(int)offsetof(TitleState_obj,colormixerbutton),HX_("colormixerbutton",38,eb,4c,d5)},
-	{::hx::fsObject /*  ::flixel::addons::ui::FlxUIButton */ ,(int)offsetof(TitleState_obj,colorextractorbutton),HX_("colorextractorbutton",93,b3,ac,e3)},
-	{::hx::fsObject /*  ::flixel::addons::ui::FlxUIButton */ ,(int)offsetof(TitleState_obj,colorinverterbutton),HX_("colorinverterbutton",d8,2f,dc,ff)},
 	{::hx::fsInt,(int)offsetof(TitleState_obj,UN_BUTTON_COLOR),HX_("UN_BUTTON_COLOR",dc,04,f1,cd)},
 	{::hx::fsInt,(int)offsetof(TitleState_obj,UN_LB_COLOR),HX_("UN_LB_COLOR",60,89,d4,1f)},
+	{::hx::fsObject /*  ::flixel::text::FlxText */ ,(int)offsetof(TitleState_obj,Credit),HX_("Credit",59,18,a6,b0)},
 	{ ::hx::fsUnknown, 0, null()}
 };
 static ::hx::StaticInfo *TitleState_obj_sStaticStorageInfo = 0;
@@ -420,11 +368,11 @@ static ::hx::StaticInfo *TitleState_obj_sStaticStorageInfo = 0;
 static ::String TitleState_obj_sMemberFields[] = {
 	HX_("backgroundcolor",b5,de,19,7a),
 	HX_("background",ee,93,1d,26),
+	HX_("Program_title",3d,b2,30,ae),
 	HX_("colormixerbutton",38,eb,4c,d5),
-	HX_("colorextractorbutton",93,b3,ac,e3),
-	HX_("colorinverterbutton",d8,2f,dc,ff),
 	HX_("UN_BUTTON_COLOR",dc,04,f1,cd),
 	HX_("UN_LB_COLOR",60,89,d4,1f),
+	HX_("Credit",59,18,a6,b0),
 	HX_("create",fc,66,0f,7c),
 	HX_("update",09,86,05,87),
 	::String(null()) };

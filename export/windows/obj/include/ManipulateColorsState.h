@@ -80,8 +80,8 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		 ::flixel::FlxSprite colorbar1;
 		 ::flixel::FlxSprite colorbar2;
 		::Array< int > result_storage;
+		int average_result_storage;
 		 ::flixel::FlxSprite resultsquare;
-		::Array< int > oldcolorarray;
 		::Array< int > colorarray;
 		 ::flixel::addons::ui::FlxUIButton mixbutton;
 		 ::flixel::text::FlxText result_text;

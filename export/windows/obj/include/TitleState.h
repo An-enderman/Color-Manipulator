@@ -26,6 +26,7 @@ HX_DECLARE_CLASS4(flixel,addons,ui,interfaces,ILabeled)
 HX_DECLARE_CLASS4(flixel,addons,ui,interfaces,IResizable)
 HX_DECLARE_CLASS2(flixel,group,FlxTypedGroup)
 HX_DECLARE_CLASS2(flixel,input,IFlxInput)
+HX_DECLARE_CLASS2(flixel,text,FlxText)
 HX_DECLARE_CLASS2(flixel,ui,FlxTypedButton)
 HX_DECLARE_CLASS2(flixel,util,IFlxDestroyable)
 
@@ -65,11 +66,11 @@ class HXCPP_CLASS_ATTRIBUTES TitleState_obj : public  ::flixel::FlxState_obj
 
 		int backgroundcolor;
 		 ::flixel::FlxSprite background;
+		 ::flixel::text::FlxText Program_title;
 		 ::flixel::addons::ui::FlxUIButton colormixerbutton;
-		 ::flixel::addons::ui::FlxUIButton colorextractorbutton;
-		 ::flixel::addons::ui::FlxUIButton colorinverterbutton;
 		int UN_BUTTON_COLOR;
 		int UN_LB_COLOR;
+		 ::flixel::text::FlxText Credit;
 		void create();
 
 		void update(Float elapsed);

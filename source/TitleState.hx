@@ -16,11 +16,11 @@ class TitleState extends FlxState
 {
 	var backgroundcolor:FlxColor = 0xFF353535;
 	var background:FlxSprite;
+	var Program_title:FlxText;
 	var colormixerbutton:FlxUIButton;
-	var colorextractorbutton:FlxUIButton;
-	var colorinverterbutton:FlxUIButton;
 	var UN_BUTTON_COLOR:FlxColor = FlxColor.GREEN;
 	var UN_LB_COLOR:FlxColor = FlxColor.WHITE;
+	var Credit:FlxText;
 
 	override public function create()
 	{
@@ -32,8 +32,16 @@ class TitleState extends FlxState
 		background.screenCenter();
 		add(background);
 
+		// program title stuff
+		Program_title = new FlxText();
+		Program_title.y = 0;
+		Program_title.size = 30;
+		Program_title.text = 'Color Manipulator Program';
+		Program_title.x = (FlxG.width / 2) - (Program_title.fieldWidth / 2);
+		add(Program_title);
+
 		// colormixerbutton stuff
-		colormixerbutton = new FlxUIButton(0, 70, 'manipulate colors', function()
+		colormixerbutton = new FlxUIButton(0, 130, 'manipulate colors', function()
 		{
 			FlxG.switchState(new ManipulateColorsState());
 		});
@@ -43,23 +51,13 @@ class TitleState extends FlxState
 		colormixerbutton.setGraphicSize(120, 60);
 		add(colormixerbutton);
 
-		// colorextractorbutton stuff
-		colorextractorbutton = new FlxUIButton(0, 0, 'WIP');
-		colorextractorbutton.color = UN_BUTTON_COLOR;
-		colorextractorbutton.label.color = UN_LB_COLOR;
-		colorextractorbutton.screenCenter(X);
-		colorextractorbutton.setGraphicSize(120, 60);
-		colorextractorbutton.y = colormixerbutton.y + 120;
-		add(colorextractorbutton);
-
-		// colorinverterbutton stuff
-		colorinverterbutton = new FlxUIButton(0, 0, 'WIP');
-		colorinverterbutton.color = UN_BUTTON_COLOR;
-		colorinverterbutton.label.color = UN_LB_COLOR;
-		colorinverterbutton.setGraphicSize(120, 60);
-		colorinverterbutton.screenCenter(X);
-		colorinverterbutton.y = colorextractorbutton.y + 120;
-		add(colorinverterbutton);
+		// credit stuff
+		Credit = new FlxText();
+		Credit.x = 0;
+		Credit.y = FlxG.height - 25;
+		Credit.size = 10;
+		Credit.text = 'Everything here is programmed by me(An-enderman)';
+		add(Credit);
 	}
 
 	override public function update(elapsed:Float)

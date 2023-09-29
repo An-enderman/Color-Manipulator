@@ -65,8 +65,8 @@ class ManipulateColorsState extends FlxState
 	var colorbar1:FlxSprite;
 	var colorbar2:FlxSprite;
 	var result_storage:Array<Int> = [127, 127, 127];
+	var average_result_storage:Int;
 	var resultsquare:FlxSprite;
-	var oldcolorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var colorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var mixbutton:FlxUIButton;
 	var result_text:FlxText;
@@ -77,8 +77,8 @@ class ManipulateColorsState extends FlxState
 
 	var common_stepsize:Int = 10;
 
-	var X_common_distanziator:Int = 70;
-	var Y_common_distanziator:Int = 30;
+	var X_common_distanziator:Int = 80;
+	var Y_common_distanziator:Int = 40;
 	var RGB_text:FlxText;
 	var stepper_r1:FlxUINumericStepper;
 	var stepper_g1:FlxUINumericStepper;
@@ -114,7 +114,7 @@ class ManipulateColorsState extends FlxState
 		result_text = new FlxText();
 		result_text.x = 272;
 		result_text.screenCenter(Y);
-		result_text.size = 17;
+		result_text.size = 12;
 		result_text.text = "0xffffffff";
 		result_text.color = 0xffffffff;
 
@@ -170,6 +170,16 @@ class ManipulateColorsState extends FlxState
 			result_storage[1] = Math.round((colorarray[1] + colorarray[4]) / 2);
 			result_storage[2] = Math.round((colorarray[2] + colorarray[5]) / 2);
 			resultsquare.color = FlxColor.fromRGB(result_storage[0], result_storage[1], result_storage[2]);
+			result_text.text = result_storage[0] + ',' + result_storage[1] + ',' + result_storage[2];
+			average_result_storage = Math.round((result_storage[0] + result_storage[1] + result_storage[2]) / 3);
+			if ((average_result_storage >= 0) && (average_result_storage <= 127))
+			{
+				result_text.color = 0xffffffff;
+			}
+			else
+			{
+				result_text.color = 0xff000000;
+			}
 		});
 		mixbutton.screenCenter(Y);
 		mixbutton.x = tabMenu.x + 40;

@@ -19,7 +19,6 @@ HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIButton)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIGroup)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUINumericStepper)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUITabMenu)
-HX_DECLARE_CLASS3(flixel,addons,ui,FlxUIText)
 HX_DECLARE_CLASS3(flixel,addons,ui,FlxUITypedButton)
 HX_DECLARE_CLASS4(flixel,addons,ui,interfaces,ICursorPointable)
 HX_DECLARE_CLASS4(flixel,addons,ui,interfaces,IEventGetter)
@@ -76,7 +75,6 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		 ::flixel::addons::ui::FlxUIButton backbutton;
 		void create();
 
-		::String colors;
 		::Array< int > color_storage;
 		int result;
 		 ::flixel::FlxSprite colorbar1;
@@ -86,10 +84,12 @@ class HXCPP_CLASS_ATTRIBUTES ManipulateColorsState_obj : public  ::flixel::FlxSt
 		::Array< int > oldcolorarray;
 		::Array< int > colorarray;
 		 ::flixel::addons::ui::FlxUIButton mixbutton;
-		 ::flixel::addons::ui::FlxUIText result_text;
+		 ::flixel::text::FlxText result_text;
 		 ::Dynamic transformer;
 		int color_temp_storage;
 		int common_stepsize;
+		int X_common_distanziator;
+		int Y_common_distanziator;
 		 ::flixel::text::FlxText RGB_text;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_r1;
 		 ::flixel::addons::ui::FlxUINumericStepper stepper_g1;

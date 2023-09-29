@@ -60,7 +60,6 @@ class ManipulateColorsState extends FlxState
 		addColorMixerUI();
 	}
 
-	var colors:String = '0';
 	var color_storage:Array<FlxColor> = [0xFFFFFFFF, 0xFFFFFFFF];
 	var result:FlxColor = 0xFFFFFFFF;
 	var colorbar1:FlxSprite;
@@ -70,13 +69,16 @@ class ManipulateColorsState extends FlxState
 	var oldcolorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var colorarray:Array<Int> = [255, 255, 255, 255, 255, 255];
 	var mixbutton:FlxUIButton;
-	var result_text:FlxUIText;
+	var result_text:FlxText;
 
 	var transformer:Dynamic;
+
 	var color_temp_storage:FlxColor;
 
 	var common_stepsize:Int = 10;
 
+	var X_common_distanziator:Int = 70;
+	var Y_common_distanziator:Int = 30;
 	var RGB_text:FlxText;
 	var stepper_r1:FlxUINumericStepper;
 	var stepper_g1:FlxUINumericStepper;
@@ -108,11 +110,19 @@ class ManipulateColorsState extends FlxState
 		resultsquare.x = colorbar1.x + 10;
 		resultsquare.y = colorbar1.y + 10;
 
+		// result text stuff
+		result_text = new FlxText();
+		result_text.x = 272;
+		result_text.screenCenter(Y);
+		result_text.size = 17;
+		result_text.text = "0xffffffff";
+		result_text.color = 0xffffffff;
+
 		// steppers stuff
 		stepper_r1 = new FlxUINumericStepper(70, 65, common_stepsize, colorarray[1], 0, 255);
-		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + 30, common_stepsize, colorarray[1], 0, 255);
-		stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + 30, common_stepsize, colorarray[2], 0, 255);
-		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + 70, stepper_r1.y, common_stepsize, colorarray[3], 0, 255);
+		stepper_g1 = new FlxUINumericStepper(stepper_r1.x, stepper_r1.y + Y_common_distanziator, common_stepsize, colorarray[1], 0, 255);
+		stepper_b1 = new FlxUINumericStepper(stepper_g1.x, stepper_g1.y + Y_common_distanziator, common_stepsize, colorarray[2], 0, 255);
+		stepper_r2 = new FlxUINumericStepper(stepper_r1.x + X_common_distanziator, stepper_r1.y, common_stepsize, colorarray[3], 0, 255);
 		stepper_g2 = new FlxUINumericStepper(stepper_r2.x, stepper_g1.y, common_stepsize, colorarray[4], 0, 255);
 		stepper_b2 = new FlxUINumericStepper(stepper_g2.x, stepper_b1.y, common_stepsize, colorarray[5], 0, 255);
 
@@ -123,8 +133,8 @@ class ManipulateColorsState extends FlxState
 			{
 				RGB_text = new FlxText();
 				RGB_text.size = 10;
-				RGB_text.y = 50 + (30 * y);
-				RGB_text.x = 70 + (70 * x);
+				RGB_text.y = 50 + (Y_common_distanziator * y);
+				RGB_text.x = 70 + (X_common_distanziator * x);
 				if (y == 0)
 				{
 					RGB_text.text = 'RED ';
@@ -177,6 +187,7 @@ class ManipulateColorsState extends FlxState
 		tab_group_mixer.add(colorbar1);
 		tab_group_mixer.add(colorbar2);
 		tab_group_mixer.add(resultsquare);
+		tab_group_mixer.add(result_text);
 		tab_group_mixer.add(mixbutton);
 		tabMenu.addGroup(tab_group_mixer);
 	}

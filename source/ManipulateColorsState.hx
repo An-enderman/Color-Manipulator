@@ -112,10 +112,10 @@ class ManipulateColorsState extends FlxState
 
 		// result text stuff
 		result_text = new FlxText();
-		result_text.x = 272;
+		result_text.text = "0xffffffff";
+		result_text.x = (FlxG.width / 2) - (result_text.fieldWidth / 2);
 		result_text.screenCenter(Y);
 		result_text.size = 12;
-		result_text.text = "0xffffffff";
 		result_text.color = 0xffffffff;
 
 		// steppers stuff
@@ -172,6 +172,7 @@ class ManipulateColorsState extends FlxState
 			resultsquare.color = FlxColor.fromRGB(result_storage[0], result_storage[1], result_storage[2]);
 			result_text.text = result_storage[0] + ',' + result_storage[1] + ',' + result_storage[2];
 			average_result_storage = Math.round((result_storage[0] + result_storage[1] + result_storage[2]) / 3);
+			result_text.x = (FlxG.width / 2) - (result_text.fieldWidth / 2);
 			if ((average_result_storage >= 0) && (average_result_storage <= 127))
 			{
 				result_text.color = 0xffffffff;

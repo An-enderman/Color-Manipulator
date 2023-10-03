@@ -172,7 +172,7 @@ class ManipulateColorsState extends FlxState
 			resultsquare.color = FlxColor.fromRGB(result_storage[0], result_storage[1], result_storage[2]);
 			result_text.text = result_storage[0] + ',' + result_storage[1] + ',' + result_storage[2];
 			average_result_storage = Math.round((result_storage[0] + result_storage[1] + result_storage[2]) / 3);
-			result_text.x = (FlxG.width / 2) - (result_text.fieldWidth / 2);
+			result_text.x = (resultsquare.x + (resultsquare.width / 2)) - (result_text.fieldWidth / 2);
 			if ((average_result_storage >= 0) && (average_result_storage <= 127))
 			{
 				result_text.color = 0xffffffff;

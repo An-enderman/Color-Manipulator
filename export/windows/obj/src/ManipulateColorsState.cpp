@@ -345,7 +345,8 @@ HXDLIN( 172)			_gthis1->set_color(color);
 HXLINE( 173)			_gthis->result_text->set_text(((((_gthis->result_storage->__get(0) + HX_(",",2c,00,00,00)) + _gthis->result_storage->__get(1)) + HX_(",",2c,00,00,00)) + _gthis->result_storage->__get(2)));
 HXLINE( 174)			_gthis->average_result_storage = ::Math_obj::round((( (Float)(((_gthis->result_storage->__get(0) + _gthis->result_storage->__get(1)) + _gthis->result_storage->__get(2))) ) / ( (Float)(3) )));
 HXLINE( 175)			 ::flixel::text::FlxText _gthis2 = _gthis->result_text;
-HXDLIN( 175)			Float _hx_tmp = (( (Float)(::flixel::FlxG_obj::width) ) / ( (Float)(2) ));
+HXDLIN( 175)			Float _gthis3 = _gthis->resultsquare->x;
+HXDLIN( 175)			Float _hx_tmp = (_gthis3 + (_gthis->resultsquare->get_width() / ( (Float)(2) )));
 HXDLIN( 175)			_gthis2->set_x((_hx_tmp - (_gthis->result_text->get_fieldWidth() / ( (Float)(2) ))));
 HXLINE( 176)			bool _hx_tmp1;
 HXDLIN( 176)			if ((_gthis->average_result_storage >= 0)) {
